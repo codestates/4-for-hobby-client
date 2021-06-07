@@ -1,7 +1,7 @@
 ---
 name: Dev Log 템플릿
 about: 프로젝트 진행 상황을 꾸준하게 기록하는 이슈 템플릿입니다.
-title: "[Dev Log] 김코딩 / 2021-06-06"
+title: "[ ✍️ Dev Log] 김코딩 / 2021-06-06"
 labels: dev-log
 assignees: ''
 
