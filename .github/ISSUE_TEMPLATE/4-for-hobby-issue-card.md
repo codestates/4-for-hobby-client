@@ -2,7 +2,7 @@
 name: 4-for-hobby Issue Card
 about: Use template to raise issue
 title: ''
-labels: 'E: 1h, E: 2h, E: 3h, front-end, back-end'
+labels: 'E: 1h, E: 2h, E: 3h, back-end, front-end'
 assignees: ''
 
 ---
