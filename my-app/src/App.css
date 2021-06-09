@@ -35,7 +35,8 @@ input[type='password']
   margin: 0.4rem;
 }
 
-input[type='search']
+input[type='search'],
+input[type='chatting']
 {
   width: 200px;
   font-size: 1.1rem;
@@ -56,10 +57,34 @@ input[type='search']
 
 .container {
   display: flex;
-  
 }
 
 .chat {
   border: 3px solid black;
-  
+  margin: 10px 50px 10px 10px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.my-chat {
+  border: 3px solid blue;
+  margin: 10px 10px 10px 50px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.chatBox {
+  background-color: pink;
+}
+
+.user-list {
+
+  background-color: skyblue;
+}
+
+.user {
+  border: 3px solid black;
+  margin: 10px 20px;
+  text-align: center;
+  line-height: 40px;
 }
