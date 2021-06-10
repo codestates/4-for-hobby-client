@@ -1,0 +1,35 @@
+.search__container {
+  position: absolute;
+  margin-left: 50rem;
+  margin-top: 3rem;
+  height: 40px;
+  border-radius: 50px;
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+.search__btn {
+  color: black;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__btn__input {
+  border: none;
+}
+
+.search__text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 16px;
+  color: black;
+  line-height: 40px;
+  width: 240px;
+}
