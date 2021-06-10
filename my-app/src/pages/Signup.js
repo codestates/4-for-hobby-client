@@ -1,26 +1,46 @@
 import React, { useState } from "react";
 import axios from "axios";
 //import { withRouter, Link } from "react-router-dom";
-import logo from '../logo.jpg';
+//import logo from '../logo.jpg';
 import '../App.css';
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [errorMessage, setError] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [name, setName] = useState(null);
+  const [mobile, setMobile] = useState(null);
+  const [errorMessage, setError] = useState(null);
+
+  const signupController = () => {
+    if (!email || !password || !name || !mobile) {
+      setError("모든 항목은 필수입니다");
+      return;
+    } else {
+      setError(null);
+    }
+
+    axios.post("http://localhost:80/signup", {
+      email: email,
+      password: password,
+      name: name,
+      mobile: mobile
+    })
+      .then(() => {
+        window.history.pushState('', '', '/1');
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div>
       <center>
         <div>
           <div>
-            <img src={logo} className="img"></img>
+            {/* <img src={logo} className="img"></img> */}
             <h1 className="title">Sign Up</h1>
           </div>
         </div>
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <span>이메일</span>
             <input
@@ -53,7 +73,7 @@ function Signup() {
             <button
               className="btn"
               type='submit'
-
+              onClick={() => signupController()}
             >
               회원가입
             </button>
