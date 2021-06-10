@@ -11,11 +11,34 @@ import ChattingRoom from "./pages/ChattingRoom";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
 
   const isAuthenticated = () => {
-    return axios.get("https://api.cakes.com/room-list")
+    return axios.get("https://api.cakes.com/")
       .then((res) => {
         console.log(res)
+        setUserinfo();
+      })
+      .catch((err) => {
+
+      })
+  }
+
+  const issueAccessToken = (token) => {
+    setAccessToken(token)
+  }
+
+  const loginHandler = (data) => {
+    setIsLogin(true);
+    issueAccessToken();
+  }
+
+  const logoutHandler = () => {
+    axios.post()
+      .then((res) => {
+        setUserinfo(null);
+        setIsLogin(false);
+        history.push('/');
       })
   }
 
@@ -46,7 +69,7 @@ function App() {
           path='/'
           render={() => {
             if(isLogin) {
-              return <Redirect to='/' />;
+              return <Redirect to='/room-list' />;
             }
             return <Redirect to='/' />;
           }}

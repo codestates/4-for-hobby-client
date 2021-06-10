@@ -3,7 +3,7 @@ import '../App.css';
 import axios from "axios";
 
 function ChattingRoom() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(null);
 
   return (
     <div>
