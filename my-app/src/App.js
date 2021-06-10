@@ -6,7 +6,8 @@ import axios from "axios";
 import Login from "./pages/Login"
 import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
-import ChattingRoom from "./pages/ChattingRoom";
+import MypageEdit from "./pages/MypageEdit";
+//import ChattingRoom from "./pages/ChattingRoom";
 
 function App() {
   const [isLogin, setIsLogin] = useState(true);
@@ -36,7 +37,7 @@ function App() {
 
 
       </Switch> */}
-      <ChattingRoom />
+      <Mypage />
     </div>
   );
 }
