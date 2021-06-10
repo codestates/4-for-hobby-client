@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-//import { withRouter, Link } from "react-router-dom";
+// import { Link, withRouter } from "react-router-dom"
+
 import '../App.css';
 
 function Mypage() {
@@ -18,40 +19,23 @@ function Mypage() {
         <h1>Mypage</h1>
         <form>
           <div>
-            <span>이메일</span>
-            <input
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            ></input>
+            <div>이메일 : kimcoding@codestates.com</div>
           </div>
           <div>
-            <span>비밀번호</span>
-            <input
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            ></input>
+            <div>비밀번호 : ********</div>
           </div>
           <div>
-            <span>이름</span>
-            <input
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-            ></input>
+            <div>이름 : 김코딩</div>
           </div>
           <div>
-            <span>전화번호</span>
-            <input
-              type="tel"
-              onChange={(e) => setMobile(e.target.value)}
-            ></input>
+            <div>전화번호 : 010-0000-0000</div>
           </div>
           <div>
             <button
               className="btn"
               type='submit'
-
             >
-              수정
+              편집
             </button>
           </div>
           {errorMessage ?
