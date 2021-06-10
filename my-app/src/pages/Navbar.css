@@ -1,0 +1,17 @@
+.navbar {
+  padding: 30px;
+  margin-top: 3rem;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  float: inline-end;
+  list-style: none;
+  padding: 3px;
+}
+
+li {
+  margin-left: 1rem;
+  align-items: center;
+}
