@@ -1,14 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
+import axios from "axios";
+import { Redirect, useHistory } from "react-router-dom";
+
+axios.defaults.withCredentials = true;
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
 
-  const onSubmit = (e) => {
+  const history = useHistory();
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit", email, password);
+
+    await axios
+      .post("http://127.0.0.1:80/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        setIsLogin(true);
+        const { accessToken } = res.data.data;
+        localStorage.setItem("token", accessToken);
+      });
   };
+
+  const authToken = localStorage.getItem("token");
+
+  if (isLogin || authToken) {
+    return <Redirect to="/"></Redirect>;
+  }
 
   return (
     <div className="form__container">
@@ -30,7 +53,15 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn">
+        <button
+          type="submit"
+          className="btn"
+          // onClick={() => {
+          //   if (isLogin) {
+          //     history.push("/");
+          //   }
+          // }}
+        >
           로그인
         </button>
       </form>
