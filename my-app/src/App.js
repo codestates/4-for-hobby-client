@@ -35,7 +35,7 @@ function App() {
   };
 
   const deleteData = (id) => {
-    //setDatas(datas.filter((data) => data.id !== id));
+    setDatas(datas.filter((data) => data.id !== id));
   };
 
   const isAuthenticated = () => {
@@ -45,6 +45,22 @@ function App() {
         setRoomInfo(res.data.data.roomInfo);
       })
       .catch((err) => console.log(err));
+  };
+
+  const enterRoomHandler = (id) => {
+    const accessToken = localStorage.getItem("token");
+
+    axios.post(
+      "http://localhost:80/enterroom",
+      { id },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
   };
 
   useEffect(() => {
@@ -64,7 +80,11 @@ function App() {
             exact
             path="/"
             component={() => (
-              <MainPage roomInfo={roomInfo} deleteData={deleteData}></MainPage>
+              <MainPage
+                roomInfo={roomInfo}
+                deleteData={deleteData}
+                enterRoomHandler={enterRoomHandler}
+              ></MainPage>
             )}
           ></Route>
           <Route

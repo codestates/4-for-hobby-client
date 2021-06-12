@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import clsx from 'clsx';
 import axios from "axios";
+import './MypageEdit.css';
 import { useHistory } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
 

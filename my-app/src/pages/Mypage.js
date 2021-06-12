@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 import clsx from "clsx";
 
 import { Link, withRouter } from "react-router-dom";
+=======
+import clsx from 'clsx';
+import './Mypage.css';
+
+import { withRouter } from "react-router-dom"
+>>>>>>> 52686a2c214aa7bf4862439d6f4d13f2a8174db1
 import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -14,6 +21,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,6 +80,7 @@ function Mypage() {
   return (
     <div>
       <center>
+<<<<<<< HEAD
         <h1>
           Mypage
           <button
@@ -82,6 +91,9 @@ function Mypage() {
           >
             초기화면
           </button>
+=======
+        <h1>Mypage
+>>>>>>> 52686a2c214aa7bf4862439d6f4d13f2a8174db1
         </h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
