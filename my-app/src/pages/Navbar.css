@@ -14,4 +14,5 @@ ul {
 li {
   margin-left: 1rem;
   align-items: center;
+  list-style: none;
 }
