@@ -1,59 +1,44 @@
 import React, { useState } from "react";
 import "./ChatAddRoom.css";
+import { Link } from "react-router-dom";
 
-const ChatAddRoom = () => {
+const ChatAddRoom = ({ addData }) => {
   const [hobby, setHobby] = useState("");
-  const [roomName, setRoomName] = useState("");
-  const [hobbyIntro, setHobbyIntro] = useState("");
-  const [capacityNumber, setCapacityNumber] = useState("");
+  const [image, setImage] = useState(null);
+
+  const handleChange = (event) => {
+    setImage(URL.createObjectURL(event.target.files[0]));
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("submit", hobby, roomName, hobbyIntro, capacityNumber);
+    if (!hobby) {
+      alert("Please add a task");
+    }
+    addData({ hobby, image });
+    setHobby("");
+    setImage("");
   };
 
   return (
     <div className="chatAdd__container">
       <h2>채팅방 정보를 입력해주세요!</h2>
+
       <form onSubmit={onSubmit}>
+        <label>업로드</label>
+        <input type="file" onChange={handleChange} />
         <div className="hobby-group">
           <label>Hobby </label>
           <input
             type="text"
             value={hobby}
             onChange={(e) => setHobby(e.target.value)}
-            required
           />
         </div>
-        <div className="roomName-group">
-          <label>Room Name </label>
-          <input
-            type="text"
-            value={roomName}
-            onChange={(e) => setRoomName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="hobbyInfo-group">
-          <label>Hobby Introduce </label>
-          <input
-            type="text"
-            value={hobbyIntro}
-            onChange={(e) => setHobbyIntro(e.target.value)}
-            required
-          />
-        </div>
-        <div className="roomName-group">
-          <label>Capacity </label>
-          <input
-            type="text"
-            value={capacityNumber}
-            onChange={(e) => setCapacityNumber(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Create</button>
-        <button type="submit">Go back</button>
+        <Link to="/">
+          <button type="submit">Create</button>
+        </Link>
+        <Link to="/">Go back </Link>
       </form>
     </div>
   );
