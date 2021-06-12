@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { useHistory } from "react-router";
+
 
 import './App.css';
 import axios from "axios";
@@ -7,38 +9,35 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 import ChattingRoom from "./pages/ChattingRoom";
+import MainPage from "./pages/MainPage";
+import MypageEdit from "./pages/MypageEdit";
+
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [userinfo, setUserinfo] = useState(null);
-  const [accessToken, setAccessToken] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const [roomInfo, setRoomInfo] = useState(null);
+  const history = useHistory();
 
   const isAuthenticated = () => {
-    return axios.get("https://api.cakes.com/")
+    axios.get("http://localhost:80/")
       .then((res) => {
-        console.log(res)
-        setUserinfo();
+        setRoomInfo(res.data.data.roomInfo);
       })
-      .catch((err) => {
-
-      })
-  }
-
-  const issueAccessToken = (token) => {
-    setAccessToken(token)
+      .catch((err) => console.log(err))
   }
 
   const loginHandler = (data) => {
     setIsLogin(true);
-    issueAccessToken();
+    localStorage.setItem('token', data.data.accessToken);
+    history.push('/');
   }
 
   const logoutHandler = () => {
     axios.post()
       .then((res) => {
-        setUserinfo(null);
+        setUserInfo(null);
         setIsLogin(false);
-        history.push('/');
       })
   }
 
@@ -52,35 +51,25 @@ function App() {
 
   return (
     <div>
-      {/* <Switch>
+      <Switch>
         <Route
           path='/login'
           render={() => (
-            <Login isLogin={isLogin} />
+            <Login loginHandler={loginHandler} />
           )}
         />
-        <Route exact path='/signup' render={() => <Signup isLogin={isLogin}/>} />
+        <Route exact path='/signup' render={() => <Signup isLogin={isLogin} />} />
+        <Route exact path='/mypage' render={() => <Mypage />} />
+        <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />
         <Route
           exact
           path='/'
-          render={() => <Mypage userinfo={userinfo} />}
+          render={() => <MainPage roomInfo={roomInfo} />}
         />
-        <Route
-          path='/'
-          render={() => {
-            if(isLogin) {
-              return <Redirect to='/room-list' />;
-            }
-            return <Redirect to='/' />;
-          }}
-        />
-
-
-      </Switch> */}
-      <ChattingRoom />
+      </Switch>
     </div>
   );
 }
 
-//export default withRouter(App);
-export default App;
+export default withRouter(App);
+//export default App;

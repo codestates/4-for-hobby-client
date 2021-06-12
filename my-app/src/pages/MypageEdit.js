@@ -1,58 +1,160 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import clsx from 'clsx';
 import axios from "axios";
+import { useHistory } from "react-router";
+import { makeStyles } from '@material-ui/core/styles';
+
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import TextField from '@material-ui/core/TextField';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FormControl from '@material-ui/core/FormControl';
+
 
 import '../App.css';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '48ch',
+    },
+    margin: {
+      margin: theme.spacing(1),
+    },
+    textField: {
+      width: '25ch',
+    },
+  },
+}));
+
 function MypageEdit() {
-  const [email, setEmail] = useState("kimcoding@codestates.com");
-  const [password, setPassword] = useState("12345678");
-  const [name, setName] = useState("김코딩");
-  const [mobile, setMobile] = useState("010-0000-0000");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState({
+    value: "",
+    showPassword: false
+  });
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
   const [errorMessage, setError] = useState("");
+
+  const classes = useStyles();
+  const history = useHistory();
+
+  const userInfoHandler = () => {
+    const accessToken = localStorage.getItem('token');
+    axios.get("http://localhost:80/mypage", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json"
+      },
+      withCredentials: true
+    })
+      .then((res) => {
+        const { email, password, name, mobile } = res.data.data.userInfo;
+        setEmail(email);
+        setPassword({ ...password, value: password })
+        setName(name);
+        setMobile(mobile);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  const updateHandler = () => {
+    //console.log(password.value, mobile)
+    axios.put("http://localhost:80/mypageupdateuser",
+      { email: email, password: password.value, mobile: mobile })
+  }
+
+  const handleClickShowPassword = () => {
+    setPassword({ ...password, showPassword: !password.showPassword });
+  };
+
+  const handleMouseDownPassword = (e) => {
+    e.preventDefault();
+  };
+
+  const handlePasswordChange = (prop) => (e) => {
+    setPassword({ ...password, [prop]: e.target.value });
+  };
+
+  useEffect(() => {
+    userInfoHandler();
+  }, [])
 
   return (
     <div>
       <center>
         <h1>Mypage Edit</h1>
-        <form>
+        <form className={classes.root} noValidate autoComplete="off">
           <div>
-            <span>이메일</span>
-            <input
+            <TextField
+              label="Email (Read Only)"
               type="email"
-              onChange={(e) => setEmail(e.target.value)}
               value={email}
-            ></input>
+              InputProps={{
+                readOnly: true,
+              }}
+              variant="outlined"
+            />
           </div>
           <div>
-            <span>비밀번호</span>
-            <input
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            ></input>
-
+            <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+              <OutlinedInput
+                type={password.showPassword ? 'text' : 'password'}
+                value={password.value}
+                onChange={handlePasswordChange("value")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                labelWidth={70}
+              />
+            </FormControl>
           </div>
           <div>
-            <span>이름</span>
-            <input
+            <TextField
+              label="Name (Read Only)"
               type="text"
-              onChange={(e) => setName(e.target.value)}
               value={name}
-            ></input>
+              InputProps={{
+                readOnly: true,
+              }}
+              variant="outlined"
+            />
           </div>
           <div>
-            <span>전화번호</span>
-            <input
+            <TextField
+              label="Mobile"
               type="tel"
               onChange={(e) => setMobile(e.target.value)}
               value={mobile}
-            ></input>
+              variant="outlined"
+            />
           </div>
           <div>
             <button
               className="btn"
-              type='submit'
-
+              onClick={() => { history.push('/mypage') }}
+            >취소</button>
+            <button
+              className="btn"
+              onClick={() => {
+                updateHandler()
+                setTimeout(history.push('/mypage'), 5000)
+              }}
             >
               저장
             </button>
