@@ -12,9 +12,8 @@
 }
 
 .right {
-  position:relative;
+  position: relative;
   right: -147px;
-  
 }
 
 form > div > span:first-child {
@@ -24,20 +23,18 @@ form > div > span:first-child {
   padding: 0 1ch;
 }
 
-input[type='text'],
-input[type='tel'],
-input[type='email'],
-input[type='password']
-{
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
   width: 400px;
   font-size: 1.1rem;
   padding: 0.4rem;
   margin: 0.4rem;
 }
 
-input[type='search'],
-input[type='chatting']
-{
+input[type="search"],
+input[type="chatting"] {
   width: 200px;
   font-size: 1.1rem;
   padding: 0.4rem;
@@ -48,7 +45,6 @@ input[type='chatting']
   font-size: 1.1rem;
   padding: 0.4rem;
   margin: 0.4rem;
-  
 }
 
 .title {
@@ -78,7 +74,6 @@ input[type='chatting']
 }
 
 .user-list {
-
   background-color: skyblue;
 }
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import { Link, withRouter } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -17,9 +17,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& .MuiTextField-root': {
+    "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: '48ch',
+      width: "48ch",
     },
   },
 }));
@@ -29,7 +29,7 @@ function Mypage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState({
     value: "",
-    showPassword: false
+    showPassword: false,
   });
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -38,23 +38,24 @@ function Mypage() {
   const history = useHistory();
 
   const mypageHandler = () => {
-    const accessToken = localStorage.getItem('token');
-    axios.get("http://localhost:80/mypage", {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json"
-      },
-      withCredentials: true
-    })
+    const accessToken = localStorage.getItem("token");
+    axios
+      .get("http://localhost:80/mypage", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
       .then((res) => {
-        const { email, password, name, mobile } = res.data.data.userInfo
+        const { email, password, name, mobile } = res.data.data.userInfo;
         setEmail(email);
-        setPassword({ ...password, value: password })
+        setPassword({ ...password, value: password });
         setName(name);
         setMobile(mobile);
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   const handleClickShowPassword = () => {
     setPassword({ ...password, showPassword: !password.showPassword });
@@ -66,18 +67,21 @@ function Mypage() {
 
   useEffect(() => {
     mypageHandler();
-  }, [])
+  }, []);
 
   return (
     <div>
       <center>
-        <h1>Mypage
-        <button
+        <h1>
+          Mypage
+          <button
             className="btn right"
-            onClick={() => { history.push('/') }}
+            onClick={() => {
+              history.push("/");
+            }}
           >
             초기화면
-            </button>
+          </button>
         </h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
@@ -92,10 +96,15 @@ function Mypage() {
             />
           </div>
           <div>
-            <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+            <FormControl
+              className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+            >
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
               <OutlinedInput
-                type={password.showPassword ? 'text' : 'password'}
+                type={password.showPassword ? "text" : "password"}
                 value={password.value}
                 endAdornment={
                   <InputAdornment position="end">
@@ -105,7 +114,11 @@ function Mypage() {
                       onMouseDown={handleMouseDownPassword}
                       edge="end"
                     >
-                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
+                      {password.showPassword ? (
+                        <Visibility />
+                      ) : (
+                        <VisibilityOff />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 }
@@ -138,19 +151,18 @@ function Mypage() {
           <div>
             <button
               className="btn"
-              onClick={() => { history.push('/mypageupdateuser') }}
+              onClick={() => {
+                history.push("/mypageupdateuser");
+              }}
             >
               편집
             </button>
           </div>
-          {errorMessage ?
-            <div>
-              {errorMessage}
-            </div> : ''}
+          {errorMessage ? <div>{errorMessage}</div> : ""}
         </form>
       </center>
     </div>
-  )
+  );
 }
 
 export default withRouter(Mypage);
