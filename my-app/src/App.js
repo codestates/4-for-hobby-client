@@ -40,6 +40,21 @@ function App() {
       .catch((err) => console.log(err))
   }
 
+  const enterRoomHandler = (id) => {
+    const accessToken = localStorage.getItem('token');
+
+    axios.post("http://localhost:80/enterroom",
+      { id }
+      , {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        withCredentials: true
+      })
+
+  }
+
   useEffect(() => {
     isAuthenticated();
   }, [])
@@ -57,7 +72,11 @@ function App() {
             exact
             path="/"
             component={() => (
-              <MainPage roomInfo={roomInfo} deleteData={deleteData}></MainPage>
+              <MainPage
+                roomInfo={roomInfo}
+                deleteData={deleteData}
+                enterRoomHandler={enterRoomHandler}
+              ></MainPage>
             )}
           ></Route>
           <Route
@@ -69,6 +88,7 @@ function App() {
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/mypage' render={() => <Mypage />} />
           <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />
+          <Route exact path='/enterroom' render={() => <ChattingRoom />} />
           <Route component={NotFound}></Route>
         </Switch>
       </div>

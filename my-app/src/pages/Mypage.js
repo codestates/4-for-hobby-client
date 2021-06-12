@@ -3,7 +3,7 @@ import axios from "axios";
 import clsx from 'clsx';
 import './Mypage.css';
 
-import { Link, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { useHistory } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -74,12 +74,6 @@ function Mypage() {
     <div>
       <center>
         <h1>Mypage
-        <button
-            className="btn right"
-            onClick={() => { history.push('/') }}
-          >
-            초기화면
-            </button>
         </h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
