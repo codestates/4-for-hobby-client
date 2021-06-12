@@ -1,4 +1,5 @@
 import React from "react";
+import './DataListItem.css';
 
 const DataListItem = ({ roomInfo, hobby, roomName, name, deleteData }) => {
   return (

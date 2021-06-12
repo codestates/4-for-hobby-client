@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './ChattingRoom.css';
 
 function ChattingRoom() {
   const [search, setSearch] = useState(null);

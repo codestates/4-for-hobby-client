@@ -3,6 +3,7 @@ import axios from "axios";
 //import { withRouter, Link } from "react-router-dom";
 //import logo from '../logo.jpg';
 import { useHistory } from "react-router";
+import './Signup.css';
 
 function Signup() {
   const [email, setEmail] = useState(null);
