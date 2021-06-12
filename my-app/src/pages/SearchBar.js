@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./SearchBar.css";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -20,8 +19,8 @@ const SearchBar = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
         <div className="search__btn">
-          <i className="fas fa-search"></i>{" "}
-          <input type="submit" className="search__btn__input" value=""></input>
+          <i className="fas fa-search"></i>
+          <input type="submit" className="search__btn__input" value="검색"></input>
         </div>
       </form>
     </div>

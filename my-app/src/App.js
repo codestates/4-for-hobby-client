@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
-
 
 import './App.css';
 import axios from "axios";
+
+import ChatAddRoom from "./pages/ChatAddRoom";
 import Login from "./pages/Login"
 import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 import ChattingRoom from "./pages/ChattingRoom";
 import MainPage from "./pages/MainPage";
 import MypageEdit from "./pages/MypageEdit";
-
+import Navbar from "./pages/Navbar";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
-  const [roomInfo, setRoomInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState("");
+  const [roomInfo, setRoomInfo] = useState("");
+  //const [datas, setDatas] = useState("");
+
   const history = useHistory();
+
+  const addData = (data) => {
+    const id = Math.floor(Math.random() * 5000) + 1;
+    const newData = { id, ...data };
+    setDatas([...datas, newData]);
+  };
+
+  const deleteData = (id) => {
+    //setDatas(datas.filter((data) => data.id !== id));
+  };
 
   const isAuthenticated = () => {
     axios.get("http://localhost:80/")
@@ -25,20 +38,6 @@ function App() {
         setRoomInfo(res.data.data.roomInfo);
       })
       .catch((err) => console.log(err))
-  }
-
-  const loginHandler = (data) => {
-    setIsLogin(true);
-    localStorage.setItem('token', data.data.accessToken);
-    history.push('/');
-  }
-
-  const logoutHandler = () => {
-    axios.post()
-      .then((res) => {
-        setUserInfo(null);
-        setIsLogin(false);
-      })
   }
 
   useEffect(() => {
@@ -50,26 +49,31 @@ function App() {
   // 
 
   return (
-    <div>
-      <Switch>
-        <Route
-          path='/login'
-          render={() => (
-            <Login loginHandler={loginHandler} />
-          )}
-        />
-        <Route exact path='/signup' render={() => <Signup isLogin={isLogin} />} />
-        <Route exact path='/mypage' render={() => <Mypage />} />
-        <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />
-        <Route
-          exact
-          path='/'
-          render={() => <MainPage roomInfo={roomInfo} />}
-        />
-      </Switch>
-    </div>
+    <Router>
+      <div>
+        <Navbar></Navbar>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={() => (
+              <MainPage roomInfo={roomInfo} deleteData={deleteData}></MainPage>
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/addroom"
+            component={() => <ChatAddRoom addData={addData}></ChatAddRoom>}
+          ></Route>
+          <Route exact path='/login' render={() => <Login />} />
+          <Route exact path='/signup' render={() => <Signup />} />
+          <Route exact path='/mypage' render={() => <Mypage />} />
+          <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />
+          <Route component={NotFound}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default withRouter(App);
-//export default App;
+export default App;

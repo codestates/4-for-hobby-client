@@ -1,18 +1,22 @@
 import React from "react";
-import "./MainpageItem.css";
 import DataListItem from "./DataListItem";
 
-const MainpageItem = ({ data, deleteData }) => {
+const MainpageItem = ({ roomInfo, deleteData }) => {
   return (
-    <div className="data-list">
-      {data.map((data) => (
-        <DataListItem
-          key={data.id}
-          data={data}
-          deleteData={deleteData}
-        ></DataListItem>
-      ))}
-    </div>
+    roomInfo ?
+      <div className="data-list">
+        {roomInfo.map((data) => (
+          <DataListItem
+            key={data.id}
+            hobby={data.hobby}
+            roomName={data.roomName}
+            name={data.name}
+            deleteData={deleteData}
+            roomInfo={roomInfo}
+          ></DataListItem>
+        ))}
+      </div>
+      : ""
   );
 };
 
