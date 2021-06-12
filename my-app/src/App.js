@@ -18,7 +18,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   const [userInfo, setUserInfo] = useState("");
   const [roomInfo, setRoomInfo] = useState("");
-  //const [datas, setDatas] = useState("");
+  const [datas, setDatas] = useState("");
 
   const history = useHistory();
 
@@ -29,7 +29,7 @@ function App() {
   };
 
   const deleteData = (id) => {
-    //setDatas(datas.filter((data) => data.id !== id));
+    setDatas(datas.filter((data) => data.id !== id));
   };
 
   const isAuthenticated = () => {
