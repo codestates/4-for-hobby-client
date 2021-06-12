@@ -2,14 +2,14 @@ import React from "react";
 import "./MainpageItem.css";
 import DataListItem from "./DataListItem";
 
-const MainpageItem = ({ data }) => {
+const MainpageItem = ({ data, deleteData }) => {
   return (
     <div className="data-list">
       {data.map((data) => (
         <DataListItem
           key={data.id}
-          hobby={data.hobby}
-          image={data.image}
+          data={data}
+          deleteData={deleteData}
         ></DataListItem>
       ))}
     </div>

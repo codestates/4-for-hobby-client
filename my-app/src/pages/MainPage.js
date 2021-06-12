@@ -1,15 +1,22 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import "./MainPage.css";
-import data from "../data/hobbyData";
 import MainpageItem from "./MainpageItem";
+import SearchBar from "../pages/SearchBar";
 
-const MainPage = () => {
+const MainPage = ({ datas, deleteData }) => {
+  useEffect(() => {
+    localStorage.getItem("token");
+  });
+
   return (
-    <div className="home">
-      <div className="home__section">
-        <MainpageItem data={data}></MainpageItem>
+    <Fragment>
+      <SearchBar></SearchBar>
+      <div className="home">
+        <div className="home__section">
+          <MainpageItem data={datas} deleteData={deleteData}></MainpageItem>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
