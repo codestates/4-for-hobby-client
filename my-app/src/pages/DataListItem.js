@@ -1,12 +1,13 @@
 import React from "react";
 import "./DataListItem.css";
 
-const DataListItem = ({ hobby, image }) => {
+const DataListItem = ({ data, deleteData }) => {
   return (
     <div className="hobby__container">
       <div className="list">
-        <img src={image} alt="" width="350px" height="233px" /> <br></br>
-        <p>{hobby}</p>
+        <img src={data.image} alt="" width="350px" height="233px" /> <br></br>
+        <p>{data.hobby}</p>
+        <div onClick={() => deleteData(data.id)}>delete</div>
       </div>
     </div>
   );
