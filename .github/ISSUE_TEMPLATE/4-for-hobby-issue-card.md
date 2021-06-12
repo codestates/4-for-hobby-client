@@ -1,16 +1,16 @@
 ---
 name: 4-for-hobby Issue Card
 about: Use template to raise issue
-title: ''
+title: "[client] "
 labels: front-end
 assignees: ''
 
 ---
 
 ### ISSUE
-- Group:  `client`, `server`, `sr`
+- Group:  `client`
 - Type: `bug`, `feature`, `delete`
-- Detail: fix actions from client redux
+- Detail: 
 
 ### TODO
 1. [ ] Job1
@@ -28,6 +28,6 @@ assignees: ''
 
 ### Labels
 - Estimated time: `E: 1h`
-- Group : `client`, `server`
+- Group : `client`
 - Sprint: `Sprint__NUMBER__`
 - Urgency: `High`, `Middle`, `Low`
