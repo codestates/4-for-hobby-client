@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import MainpageItem from "./MainpageItem";
 import SearchBar from "../pages/SearchBar";
 import { useHistory } from "react-router";
+import './MainPage.css';
 
 const MainPage = ({ roomInfo, deleteData }) => {
   useEffect(() => {

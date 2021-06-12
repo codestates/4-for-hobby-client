@@ -1,5 +1,6 @@
 import React from "react";
 import DataListItem from "./DataListItem";
+import './MainpageItem.css';
 
 const MainpageItem = ({ roomInfo, deleteData }) => {
   return (
