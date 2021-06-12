@@ -15,9 +15,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
 
-
-import '../App.css';
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

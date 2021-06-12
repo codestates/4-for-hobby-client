@@ -13,9 +13,6 @@ import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FormControl from '@material-ui/core/FormControl';
 
-
-import '../App.css';
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {

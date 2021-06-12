@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 //import { withRouter, Link } from "react-router-dom";
 //import logo from '../logo.jpg';
-import '../App.css';
+import { useHistory } from "react-router";
 
 function Signup() {
   const [email, setEmail] = useState(null);
@@ -10,6 +10,8 @@ function Signup() {
   const [name, setName] = useState(null);
   const [mobile, setMobile] = useState(null);
   const [errorMessage, setError] = useState(null);
+
+  const history = useHistory();
 
   const signupController = () => {
     if (!email || !password || !name || !mobile) {
@@ -25,9 +27,6 @@ function Signup() {
       name: name,
       mobile: mobile
     })
-      .then(() => {
-        window.history.pushState('', '', '/1');
-      })
       .catch((err) => console.log(err));
   }
 
@@ -72,8 +71,11 @@ function Signup() {
           <div>
             <button
               className="btn"
-              type='submit'
-              onClick={() => signupController()}
+              onClick={() => {
+                signupController()
+                setTimeout(history.push('/login'), 5000)
+              }
+              }
             >
               회원가입
             </button>
