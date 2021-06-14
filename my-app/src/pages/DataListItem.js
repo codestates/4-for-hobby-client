@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './DataListItem.css';
+import dotenv from "dotenv";
+dotenv.config();
 
 const DataListItem = ({
   data, deleteData, enterRoomHandler
@@ -9,8 +11,8 @@ const DataListItem = ({
   const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(false);
 
-  const deleteBtnHandler = () => {
-    axios.get("http://localhost:80/mypage", {
+  const deleteBtnHandler = async () => {
+    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { useHistory } from "react-router";
 import './App.css';
 import axios from "axios";
+import dotenv from "dotenv";
 
 import ChatAddRoom from "./pages/ChatAddRoom";
 import Login from "./pages/Login"
@@ -14,6 +15,7 @@ import MypageEdit from "./pages/MypageEdit";
 import Navbar from "./pages/Navbar";
 import NavbarCopy from "./pages/Navbar copy"
 import NotFound from "./pages/NotFound";
+dotenv.config();
 
 function App() {
   const [roomInfo, setRoomInfo] = useState("");
@@ -23,6 +25,8 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
 
   const history = useHistory();
+  const accessToken = localStorage.getItem('token');
+
 
   const isLoginHandler = () => {
     setIsLogin(true);
@@ -32,8 +36,18 @@ function App() {
   //   setIsLogin(false);
   // }
 
-  const isEnterHandler = () => {
+  const isEnterHandler = async () => {
     setIsEnter(false);
+    await axios.post(`${process.env.REACT_APP_API_URL}/exitroom`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        withCredentials: true
+      }
+    )
   }
 
   const addData = (data) => {
@@ -46,18 +60,18 @@ function App() {
     setDatas(datas.filter((data) => data.id !== id));
   };
 
-  const getRoomInfoHandler = () => {
-    axios.get("http://localhost:80/")
+  const getRoomInfoHandler = async () => {
+
+    await axios.get(`${process.env.REACT_APP_API_URL}/`)
       .then((res) => {
         setRoomInfo(res.data.data.roomInfo);
       })
+
   }
 
   const enterRoomHandler = (roomId) => {
-    const accessToken = localStorage.getItem('token');
     if (accessToken) {
-      console.log(roomId);
-      axios.post("http://localhost:80/enterroom",
+      axios.post(`${process.env.REACT_APP_API_URL}/enterroom`,
         { roomId }
         , {
           headers: {
