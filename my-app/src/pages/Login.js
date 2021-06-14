@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
 import './Login.css'
+import dotenv from "dotenv";
+dotenv.config();
 
 axios.defaults.withCredentials = true;
 
-const Login = () => {
+const Login = ({ isLoginHandler }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
@@ -14,17 +16,21 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/login`, {
+          email,
+          password,
+        })
+        .then((res) => {
+          setIsLogin(true);
+          const { accessToken } = res.data.data;
+          localStorage.setItem("token", accessToken);
+        });
+    } catch (error) {
+      console.error("에러입니다")
+    }
 
-    await axios
-      .post("http://127.0.0.1:80/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        setIsLogin(true);
-        const { accessToken } = res.data.data;
-        localStorage.setItem("token", accessToken);
-      });
   };
 
   const authToken = localStorage.getItem("token");
@@ -56,11 +62,7 @@ const Login = () => {
         <button
           type="submit"
           className="btn"
-        // onClick={() => {
-        //   if (isLogin) {
-        //     history.push("/");
-        //   }
-        // }}
+          onClick={() => isLoginHandler()}
         >
           로그인
         </button>

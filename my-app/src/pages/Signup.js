@@ -4,6 +4,8 @@ import axios from "axios";
 //import logo from '../logo.jpg';
 import { useHistory } from "react-router";
 import './Signup.css';
+import dotenv from "dotenv";
+dotenv.config();
 
 function Signup() {
   const [email, setEmail] = useState(null);
@@ -14,7 +16,8 @@ function Signup() {
 
   const history = useHistory();
 
-  const signupController = () => {
+
+  const signupController = async () => {
     if (!email || !password || !name || !mobile) {
       setError("모든 항목은 필수입니다");
       return;
@@ -22,7 +25,7 @@ function Signup() {
       setError(null);
     }
 
-    axios.post("http://localhost:80/signup", {
+    await axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
       email: email,
       password: password,
       name: name,
