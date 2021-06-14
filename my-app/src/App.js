@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { useHistory } from "react-router";
-
 import './App.css';
 import axios from "axios";
 
@@ -13,14 +12,29 @@ import ChattingRoom from "./pages/ChattingRoom";
 import MainPage from "./pages/MainPage";
 import MypageEdit from "./pages/MypageEdit";
 import Navbar from "./pages/Navbar";
+import NavbarCopy from "./pages/Navbar copy"
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const [userInfo, setUserInfo] = useState("");
   const [roomInfo, setRoomInfo] = useState("");
   const [datas, setDatas] = useState("");
+  const [innerRoomId, setInnerRoomId] = useState("");
+  const [isEnter, setIsEnter] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const history = useHistory();
+
+  const isLoginHandler = () => {
+    setIsLogin(true);
+  }
+
+  // const logoutHandler = () => {
+  //   setIsLogin(false);
+  // }
+
+  const isEnterHandler = () => {
+    setIsEnter(false);
+  }
 
   const addData = (data) => {
     const id = Math.floor(Math.random() * 5000) + 1;
@@ -32,31 +46,35 @@ function App() {
     setDatas(datas.filter((data) => data.id !== id));
   };
 
-  const isAuthenticated = () => {
+  const getRoomInfoHandler = () => {
     axios.get("http://localhost:80/")
       .then((res) => {
         setRoomInfo(res.data.data.roomInfo);
       })
-      .catch((err) => console.log(err))
   }
 
-  const enterRoomHandler = (id) => {
+  const enterRoomHandler = (roomId) => {
     const accessToken = localStorage.getItem('token');
-
-    axios.post("http://localhost:80/enterroom",
-      { id }
-      , {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json"
-        },
-        withCredentials: true
-      })
-
+    if (accessToken) {
+      console.log(roomId);
+      axios.post("http://localhost:80/enterroom",
+        { roomId }
+        , {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+          },
+          withCredentials: true
+        })
+      setInnerRoomId(roomId);
+      setIsEnter(true);
+    } else {
+      return;
+    }
   }
 
   useEffect(() => {
-    isAuthenticated();
+    getRoomInfoHandler();
   }, [])
 
   // 처음 페이지 room-list, GET / 로그인, 회원가입 LINK
@@ -66,29 +84,35 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar></Navbar>
+
+        <Navbar isEnterHandler={isEnterHandler}></Navbar>
+
         <Switch>
           <Route
             exact
             path="/"
-            component={() => (
-              <MainPage
-                roomInfo={roomInfo}
-                deleteData={deleteData}
-                enterRoomHandler={enterRoomHandler}
-              ></MainPage>
-            )}
+            render={() => {
+              if (isEnter) {
+                return <Redirect to='/enterroom' />;
+              } else {
+                return <MainPage
+                  roomInfo={roomInfo}
+                  deleteData={deleteData}
+                  enterRoomHandler={enterRoomHandler}
+                ></MainPage>
+              }
+            }}
           ></Route>
           <Route
             exact
             path="/addroom"
             component={() => <ChatAddRoom addData={addData}></ChatAddRoom>}
           ></Route>
-          <Route exact path='/login' render={() => <Login />} />
+          <Route exact path='/login' render={() => <Login isLoginHandler={isLoginHandler} />} />
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/mypage' render={() => <Mypage />} />
           <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />
-          <Route exact path='/enterroom' render={() => <ChattingRoom />} />
+          <Route exact path='/enterroom' render={() => <ChattingRoom roomId={innerRoomId} />} />
           <Route component={NotFound}></Route>
         </Switch>
       </div>
