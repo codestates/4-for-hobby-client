@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
-const Navbar = ({ isEnterHandler }) => {
+const NavbarCopy = ({ isEnterHandler }) => {
   const authToken = localStorage.getItem("token");
 
   const onClick = () => {
@@ -26,7 +26,7 @@ const Navbar = ({ isEnterHandler }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/" onClick={isEnterHandler}>Home </Link>
+        <Link to="/" onClick={() => isEnterHandler()}>Home </Link>
       </li>
       <li>
         <Link to="/addroom">방 생성</Link>
@@ -42,7 +42,7 @@ const Navbar = ({ isEnterHandler }) => {
     </ul>
   );
 
-  return <nav className="navbar">{authToken ? authLinks : guestLinks}</nav>;
+  return <nav className="navbar">{guestLinks}</nav>;
 };
 
-export default Navbar;
+export default NavbarCopy;

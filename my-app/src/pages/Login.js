@@ -5,7 +5,7 @@ import './Login.css'
 
 axios.defaults.withCredentials = true;
 
-const Login = () => {
+const Login = ({ isLoginHandler }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
@@ -56,11 +56,7 @@ const Login = () => {
         <button
           type="submit"
           className="btn"
-        // onClick={() => {
-        //   if (isLogin) {
-        //     history.push("/");
-        //   }
-        // }}
+          onClick={isLoginHandler}
         >
           로그인
         </button>
