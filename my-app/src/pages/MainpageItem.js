@@ -1,21 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import DataListItem from "./DataListItem";
-import './MainpageItem.css';
+import "./MainpageItem.css";
 
 const MainpageItem = ({ roomInfo, deleteData, enterRoomHandler }) => {
-  return (
-    roomInfo ?
-      <div className="data-list">
-        {roomInfo.map((data) => (
-          <DataListItem
-            key={data.id}
-            deleteData={deleteData}
-            data={data}
-            enterRoomHandler={enterRoomHandler}
-          ></DataListItem>
-        ))}
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return roomInfo ? (
+    <div>
+      <div>
+        <form
+          className="search__container"
+          style={{ marginLeft: "25rem", marginBottom: "10rem" }}
+        >
+          <input
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search__text"
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+          />
+        </form>
       </div>
-      : ""
+      <div className="data-list">
+        {roomInfo
+          .filter((val) => {
+            if (searchTerm === "") {
+              return val;
+            } else if (val.name.includes(searchTerm)) {
+              return val;
+            }
+          })
+          .map((data) => (
+            <DataListItem
+              key={data.id}
+              deleteData={deleteData}
+              data={data}
+              enterRoomHandler={enterRoomHandler}
+            ></DataListItem>
+          ))}
+      </div>
+    </div>
+  ) : (
+    ""
   );
 };
 

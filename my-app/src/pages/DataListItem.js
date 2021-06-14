@@ -4,9 +4,9 @@ import './DataListItem.css';
 import dotenv from "dotenv";
 dotenv.config();
 
-const DataListItem = ({
-  data, deleteData, enterRoomHandler
-}) => {
+const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
+  const history = useHistory();
+
   const accessToken = localStorage.getItem('token');
   const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(false);
@@ -34,10 +34,11 @@ const DataListItem = ({
   return (
     <div className="hobby__container">
       <div className="list">
-        <p>{data.roomName}</p>
-        <p>{data.name}</p>
-        <p>{data.hobby}</p>
+        <p> 방 생성자: {data.name}</p>
+        <p> 방 이름: {data.roomName}</p>
+        <p> 관심사: {data.hobby}</p>
       </div>
+
       {isValid ? <button
         onClick={() => deleteData(data.id)}>
         삭제</button>

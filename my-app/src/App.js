@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { useHistory } from "react-router";
 import './App.css';
+
 import axios from "axios";
 import dotenv from "dotenv";
 
 import ChatAddRoom from "./pages/ChatAddRoom";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 import ChattingRoom from "./pages/ChattingRoom";
@@ -18,11 +20,14 @@ import NotFound from "./pages/NotFound";
 dotenv.config();
 
 function App() {
+
+
   const [roomInfo, setRoomInfo] = useState("");
   const [datas, setDatas] = useState("");
   const [innerRoomId, setInnerRoomId] = useState("");
   const [isEnter, setIsEnter] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+
 
   const history = useHistory();
   const accessToken = localStorage.getItem('token');
@@ -50,15 +55,18 @@ function App() {
     )
   }
 
-  const addData = (data) => {
-    const id = Math.floor(Math.random() * 5000) + 1;
-    const newData = { id, ...data };
-    setDatas([...datas, newData]);
+  // const addData = (data) => {
+  //   const id = Math.floor(Math.random() * 5000) + 1;
+  //   const newData = { id, ...data };
+  //   setDatas([...datas, newData]);
+  // };
+
+  const deleteData = async (roomName) => {
+    await axios.delete(`http://localhost:80/deleteroom/${roomName}`);
+    const newRoom = roomInfo.filter((room) => room.roomName !== roomName);
+    setRoomInfo(newRoom);
   };
 
-  const deleteData = (id) => {
-    setDatas(datas.filter((data) => data.id !== id));
-  };
 
   const getRoomInfoHandler = async () => {
 
@@ -91,9 +99,10 @@ function App() {
     getRoomInfoHandler();
   }, [])
 
+
   // 처음 페이지 room-list, GET / 로그인, 회원가입 LINK
   // 로그인 후 / 로그아웃, 방생성, 회원가입 LINK
-  // 
+  //
 
   return (
     <Router>
@@ -120,8 +129,10 @@ function App() {
           <Route
             exact
             path="/addroom"
-            component={() => <ChatAddRoom addData={addData}></ChatAddRoom>}
+            component={() => <ChatAddRoom></ChatAddRoom>}
           ></Route>
+
+
           <Route exact path='/login' render={() => <Login isLoginHandler={isLoginHandler} />} />
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/mypage' render={() => <Mypage />} />

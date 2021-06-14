@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import MainpageItem from "./MainpageItem";
-import SearchBar from "../pages/SearchBar";
+
+
 import './MainPage.css';
 
 const MainPage = ({ roomInfo, deleteData, enterRoomHandler }) => {
@@ -10,7 +11,6 @@ const MainPage = ({ roomInfo, deleteData, enterRoomHandler }) => {
 
   return (
     <Fragment>
-      <SearchBar></SearchBar>
       <div className="home">
         <div className="home__section">
           <MainpageItem
