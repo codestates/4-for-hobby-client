@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import socketio from "socket.io-client";
-
+import dotenv from "dotenv";
 import './ChattingRoom.css';
 
-const socket = socketio.connect('http://localhost:80');
+dotenv.config()
+
+const socket = socketio.connect(`${process.env.REACT_APP_API_URL}`)
 
 function ChattingRoom({ roomId }) {
   const [chatting, setChatting] = useState("");
@@ -15,8 +17,8 @@ function ChattingRoom({ roomId }) {
 
   const accessToken = localStorage.getItem('token');
 
-  const getUserNameHandler = () => {
-    axios.get("http://localhost:80/mypage", {
+  const getUserNameHandler = async () => {
+    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"
@@ -30,8 +32,8 @@ function ChattingRoom({ roomId }) {
       })
   }
 
-  const getUserListHandler = () => {
-    axios.post("http://localhost:80/getroomusers",
+  const getUserListHandler = async () => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/getroomusers`,
       { roomId }
       , {
         headers: {
@@ -46,9 +48,9 @@ function ChattingRoom({ roomId }) {
       })
   }
 
-  const sendMessageHandler = (e) => {
+  const sendMessageHandler = async (e) => {
     e.preventDefault();
-    socket.emit('send', {
+    await socket.emit('send', {
       name: name,
       message: chatting,
       id: id
@@ -56,8 +58,8 @@ function ChattingRoom({ roomId }) {
     setChatting("");
   }
 
-  const getMessageHandler = () => {
-    socket.on('sendAll', (data) => {
+  const getMessageHandler = async () => {
+    await socket.on('sendAll', (data) => {
       // console.log(data)
       setLogs([...logs, data]);
     })

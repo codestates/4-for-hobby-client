@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import clsx from 'clsx';
 import './Mypage.css';
+import dotenv from "dotenv";
 
 import { withRouter } from "react-router-dom"
 import { useHistory } from "react-router";
@@ -15,7 +16,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
-
+dotenv.config();
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,9 +40,9 @@ function Mypage() {
   const classes = useStyles();
   const history = useHistory();
 
-  const mypageHandler = () => {
+  const mypageHandler = async () => {
     const accessToken = localStorage.getItem('token');
-    axios.get("http://localhost:80/mypage", {
+    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"

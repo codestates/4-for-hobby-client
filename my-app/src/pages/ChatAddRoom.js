@@ -4,8 +4,8 @@ import { PlusOutlined } from '@ant-design/icons'
 import axios from 'axios';
 import "./ChatAddRoom.css";
 import { Link } from "react-router-dom";
-
-
+import dotenv from "dotenv";
+dotenv.config();
 
 const ChatAddRoom = ({ addData }) => {
   const [hobby, setHobby] = useState("");
@@ -34,7 +34,7 @@ const ChatAddRoom = ({ addData }) => {
     };
     formData.append('file', files[0]);
 
-    axios.post('http://localhost:80/api/product/image', formData, config).then((response) => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/product/image`, formData, config).then((response) => {
       if (response.data.success) {
         console.log(response.data);
         setImages([...Images, response.data.filePath]);
@@ -75,7 +75,7 @@ const ChatAddRoom = ({ addData }) => {
             {Images.map((image, index) => (
               <div key={index}>
                 <img
-                  src={`http://localhost:80/${image}`}
+                  src={`${process.env.REACT_APP_API_URL}/${image}`}
                 />
               </div>
             ))}
