@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import './SearchBar.css';
+import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ roomInfo }) => {
   const [search, setSearch] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
   };
 
   return (
@@ -17,11 +22,15 @@ const SearchBar = () => {
           type="text"
           placeholder="Search..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleChange}
         />
         <div className="search__btn">
           <i className="fas fa-search"></i>
-          <input type="submit" className="search__btn__input" value="검색"></input>
+          <input
+            type="submit"
+            className="search__btn__input"
+            value="검색"
+          ></input>
         </div>
       </form>
     </div>

@@ -1,23 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ChatAddRoom.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
-const ChatAddRoom = ({ addData }) => {
+const ChatAddRoom = () => {
+  const [roomName, setRoomName] = useState("");
   const [hobby, setHobby] = useState("");
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
+
+  let history = useHistory();
+
+  // const updateImages = (newImages) => {
+  //   setImages(newImages);
+  // };
 
   const handleChange = (event) => {
-    setImage(URL.createObjectURL(event.target.files[0]));
+    setImages(URL.createObjectURL(event.target.files[0]));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (!hobby) {
+    if (!hobby || !roomName) {
       alert("Please add a task");
     }
-    addData({ hobby, image });
+    const accessToken = localStorage.getItem("token");
+    //images: Images,
+    await axios.post(
+      "http://localhost:80/addroom",
+      { hobby: hobby, roomName: roomName },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
+
     setHobby("");
-    setImage("");
+    setRoomName("");
   };
 
   return (
@@ -32,12 +53,29 @@ const ChatAddRoom = ({ addData }) => {
           <input
             type="text"
             value={hobby}
+            name="hobby"
             onChange={(e) => setHobby(e.target.value)}
           />
         </div>
-        <Link to="/">
-          <button type="submit">Create</button>
-        </Link>
+        <div className="roomname-group">
+          <label>RoomName </label>
+          <input
+            type="text"
+            value={roomName}
+            name="roomname"
+            onChange={(e) => setRoomName(e.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          onClick={() =>
+            setTimeout(() => {
+              history.push("/");
+            }, 1000)
+          }
+        >
+          Create
+        </button>
         <Link to="/">Go back </Link>
       </form>
     </div>

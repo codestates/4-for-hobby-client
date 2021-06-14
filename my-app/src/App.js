@@ -23,19 +23,20 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   const [userInfo, setUserInfo] = useState("");
-  const [roomInfo, setRoomInfo] = useState("");
-  const [datas, setDatas] = useState("");
+  const [roomInfo, setRoomInfo] = useState();
 
   const history = useHistory();
 
-  const addData = (data) => {
-    const id = Math.floor(Math.random() * 5000) + 1;
-    const newData = { id, ...data };
-    setDatas([...datas, newData]);
-  };
+  // const addData = (data) => {
+  //   const id = Math.floor(Math.random() * 5000) + 1;
+  //   const newData = { id, ...data };
+  //   setDatas([...datas, newData]);
+  // };
 
-  const deleteData = (id) => {
-    setDatas(datas.filter((data) => data.id !== id));
+  const deleteData = async (roomName) => {
+    await axios.delete(`http://localhost:80/deleteroom/${roomName}`);
+    const newRoom = roomInfo.filter((room) => room.roomName !== roomName);
+    setRoomInfo(newRoom);
   };
 
   const isAuthenticated = () => {
@@ -90,7 +91,7 @@ function App() {
           <Route
             exact
             path="/addroom"
-            component={() => <ChatAddRoom addData={addData}></ChatAddRoom>}
+            component={() => <ChatAddRoom></ChatAddRoom>}
           ></Route>
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/signup" render={() => <Signup />} />
