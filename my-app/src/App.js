@@ -21,10 +21,16 @@ function App() {
   const [roomInfo, setRoomInfo] = useState([]);
   const [innerRoomId, setInnerRoomId] = useState("");
   const [isEnter, setIsEnter] = useState(false);
+  const [inAddRoom, setInAddRoom] = useState(false);
 
   const accessToken = localStorage.getItem('token');
 
+  const isInAddRoomHandler = () => {
+    setInAddRoom(true);
+  }
+
   const isEnterHandler = async () => {
+    setInAddRoom(false);
     try {
       setIsEnter(false);
       await axios.post(`${process.env.REACT_APP_API_URL}/exitroom`,
@@ -60,9 +66,6 @@ function App() {
         const { roomData } = res.data.data;
         setRoomInfo(roomData);
       })
-
-
-
   }
 
   const enterRoomHandler = (roomId) => {
@@ -95,9 +98,7 @@ function App() {
   return (
     <Router>
       <div>
-
-        <Navbar isEnterHandler={isEnterHandler}></Navbar>
-
+        <Navbar inAddRoom={inAddRoom} isInAddRoomHandler={isInAddRoomHandler} isEnterHandler={isEnterHandler}></Navbar>
         <Switch>
           <Route
             exact
