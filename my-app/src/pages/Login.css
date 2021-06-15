@@ -38,16 +38,15 @@ GENERIC BUTTON STYLES
   margin-left: -220px;
 }
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   background: #dae9df;
-}
+} */
 
 .container {
   width: 100px;
   height: 50px;
-  padding-top: 100px;
   margin: 0 auto;
 }
 /* 구체 왔다 갔다. (+ 색깔 변경) */
