@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import './Login.css'
 import dotenv from "dotenv";
 dotenv.config();
@@ -38,32 +37,33 @@ const Login = () => {
   }
 
   return (
-    <div className="form__container">
-      <form className="form" onSubmit={onSubmit}>
-        <div className="email-group">
-          <label>Email </label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="password-group">
-          <label>Password </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button
-          type="submit"
-          className="btn"
-        >
-          로그인
-        </button>
-      </form>
+
+    <div>
+      <center>
+        <form className="form-div" onSubmit={e => e.preventDefault()}>
+          <h1 className="title"> Login </h1>
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div
+            className="col three"
+            onClick={onSubmit}
+          >
+            <a href="#" className="btn-login btn-sea"> Sign In </a>
+          </div>
+        </form>
+      </center>
     </div>
   );
 };

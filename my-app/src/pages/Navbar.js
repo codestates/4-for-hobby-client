@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
-const Navbar = ({ isEnterHandler }) => {
+const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
   const authToken = localStorage.getItem("token");
 
   const onClick = () => {
@@ -28,9 +28,10 @@ const Navbar = ({ isEnterHandler }) => {
       <li>
         <Link to="/" onClick={isEnterHandler}>Home </Link>
       </li>
-      <li>
-        <Link to="/addroom">방 생성</Link>
-      </li>
+      {inAddRoom ? ""
+        : <li>
+          <Link to="/addroom" onClick={isInAddRoomHandler}>방 생성</Link>
+        </li>}
       <li>
         <Link to="/mypage">마이페이지</Link>
       </li>
