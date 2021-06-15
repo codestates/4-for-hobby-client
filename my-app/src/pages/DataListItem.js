@@ -33,23 +33,30 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
   return (
     <div className="hobby__container">
       <div className="list">
-        <p> 방 생성자: {data.name}</p>
-        <p> 방 이름: {data.roomName}</p>
-        <p> 관심사: {data.hobby}</p>
+        <div>
+          <h3 className="font"> 방 생성자: {data.name}</h3>
+          <h4> 방 이름: {data.roomName}</h4>
+          <p> 관심사: {data.hobby}</p>
+        </div>
+        {isValid ? (
+          <button
+            className="btn-delete"
+            onClick={() => deleteData(data.roomName)}
+          >
+            삭제
+          </button>
+        ) : (
+          ""
+        )}
+        <button
+          className="btn-enter"
+          onClick={() => {
+            enterRoomHandler(data.id);
+          }}
+        >
+          입장
+        </button>
       </div>
-
-      {isValid ? (
-        <button onClick={() => deleteData(data.roomName)}>삭제</button>
-      ) : (
-        ""
-      )}
-      <button
-        onClick={() => {
-          enterRoomHandler(data.id);
-        }}
-      >
-        입장
-      </button>
     </div>
   );
 };
