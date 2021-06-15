@@ -129,15 +129,13 @@ const ChatAddRoom = () => {
         <button
           className="btn__create"
           type="submit"
-          onClick={() =>
-            window.location.replace("/")
-          }
+          onClick={() => window.location.replace("/")}
         >
           Create
         </button>
-        <Link to="/" className="btn__back">
+        {/* <Link to="/" className="btn__back">
           Go back{" "}
-        </Link>
+        </Link> */}
       </form>
     </div>
   );
