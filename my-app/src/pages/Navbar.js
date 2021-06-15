@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import "./Navbar.css";
 
-const Navbar = ({ isEnterHandler }) => {
+const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
+
   const authToken = localStorage.getItem("token");
 
   const onClick = () => {
@@ -11,32 +12,44 @@ const Navbar = ({ isEnterHandler }) => {
 
   const guestLinks = (
     <ul>
-      <li>
-        <Link to="/" >Home </Link>
+      <div className="logo"></div>
+      <li className="homebuttonbeforelogin">
+        <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/login">로그인 </Link>
+      <li className="loginbutton">
+        <Link to="/login">Sign in</Link>
       </li>
-      <li>
-        <Link to="/signup">회원가입 </Link>
+      <li className="signupbutton">
+        <Link to="/signup">Sign up</Link>
       </li>
     </ul>
   );
 
   const authLinks = (
     <ul>
-      <li>
-        <Link to="/" onClick={isEnterHandler}>Home </Link>
+      <div className="logo"></div>
+      <li className="homebuttonafterlogin">
+        <Link to="/" onClick={isEnterHandler}>
+          Home{" "}
+        </Link>
       </li>
-      <li>
-        <Link to="/addroom">방 생성</Link>
+
+      <li className="roomcreatebutton">
+        <Link to="/addroom">+Room</Link>
       </li>
+      <li className="mypagebutton">
+        <Link to="/mypage">Mypage</Link>
+
+      {inAddRoom ? ""
+        : <li>
+          <Link to="/addroom" onClick={isInAddRoomHandler}>방 생성</Link>
+        </li>}
       <li>
         <Link to="/mypage">마이페이지</Link>
       </li>
-      <li>
+      <li className="logoutbutton">
         <a href="/" onClick={onClick}>
-          로그아웃
+          Sign out
         </a>
       </li>
     </ul>

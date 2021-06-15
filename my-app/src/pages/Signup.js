@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-//import { withRouter, Link } from "react-router-dom";
-//import logo from '../logo.jpg';
 import { useHistory } from "react-router";
 import './Signup.css';
 import dotenv from "dotenv";
@@ -35,54 +33,55 @@ function Signup() {
   }
 
   return (
-    <div>
+    <div >
       <center>
-        <div>
+        <form className="form-div" onSubmit={(e) => e.preventDefault()}>
+          <h1 className="title">Sign Up</h1>
           <div>
-            {/* <img src={logo} className="img"></img> */}
-            <h1 className="title">Sign Up</h1>
-          </div>
-        </div>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <div>
-            <span>이메일</span>
             <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
             ></input>
           </div>
           <div>
-            <span>비밀번호</span>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
             ></input>
           </div>
           <div>
-            <span>이름</span>
             <input
               type="text"
               onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
             ></input>
           </div>
           <div>
-            <span>전화번호</span>
             <input
               type="tel"
               onChange={(e) => setMobile(e.target.value)}
+              placeholder="Phone Number"
             ></input>
           </div>
-          <div>
-            <button
-              className="btn"
-              onClick={() => {
-                signupController()
-                setTimeout(history.push('/login'), 5000)
-              }
-              }
-            >
-              회원가입
-            </button>
+          <div
+            onClick={() => {
+              signupController()
+              setTimeout(history.push('/login'), 5000)
+            }
+            }
+          >
+          </div>
+          <div
+            className="col three"
+            onClick={() => {
+              signupController()
+              setTimeout(history.push('/login'), 5000)
+            }
+            }
+          >
+            <a href="#" className="btn btn-sea"> Register now</a>
           </div>
           {errorMessage ?
             <div>

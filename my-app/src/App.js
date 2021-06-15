@@ -26,10 +26,16 @@ function App() {
   const [roomInfo, setRoomInfo] = useState([]);
   const [innerRoomId, setInnerRoomId] = useState("");
   const [isEnter, setIsEnter] = useState(false);
+  const [inAddRoom, setInAddRoom] = useState(false);
 
   const accessToken = localStorage.getItem("token");
 
+  const isInAddRoomHandler = () => {
+    setInAddRoom(true);
+  }
+
   const isEnterHandler = async () => {
+    setInAddRoom(false);
     try {
       setIsEnter(false);
       await axios.post(`${process.env.REACT_APP_API_URL}/exitroom`, null, {
@@ -53,11 +59,12 @@ function App() {
   };
 
   const getRoomInfoHandler = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/`).then((res) => {
-      const { roomData } = res.data.data;
-      setRoomInfo(roomData);
-    });
-  };
+    axios.get(`${process.env.REACT_APP_API_URL}/`)
+      .then((res) => {
+        const { roomData } = res.data.data;
+        setRoomInfo(roomData);
+      })
+  }
 
   const enterRoomHandler = (roomId) => {
     if (accessToken) {
@@ -90,8 +97,7 @@ function App() {
   return (
     <Router>
       <div className="background__container">
-        <Navbar isEnterHandler={isEnterHandler}></Navbar>
-
+        <Navbar inAddRoom={inAddRoom} isInAddRoomHandler={isInAddRoomHandler} isEnterHandler={isEnterHandler}></Navbar>
         <Switch>
           <Route
             exact

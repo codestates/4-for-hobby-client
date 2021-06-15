@@ -112,7 +112,7 @@ function ChattingRoom({ roomId }) {
             onChange={(e) => setChatting(e.target.value)}
             value={chatting}
           ></input>
-          <button onClick={sendMessageHandler} className="btn">전송</button>
+          <button onClick={sendMessageHandler} className="send-btn">전송</button>
         </form>
       </div>
     </div>
