@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
-
+import "./Navbar.css";
+import logo from "../logo.png";
 const Navbar = ({ isEnterHandler }) => {
   const authToken = localStorage.getItem("token");
 
@@ -11,32 +11,36 @@ const Navbar = ({ isEnterHandler }) => {
 
   const guestLinks = (
     <ul>
-      <li>
-        <Link to="/" >Home </Link>
+      <div className="logo"></div>
+      <li className="homebuttonbeforelogin">
+        <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/login">로그인 </Link>
+      <li className="loginbutton">
+        <Link to="/login">Sign in</Link>
       </li>
-      <li>
-        <Link to="/signup">회원가입 </Link>
+      <li className="signupbutton">
+        <Link to="/signup">Sign up</Link>
       </li>
     </ul>
   );
 
   const authLinks = (
     <ul>
-      <li>
-        <Link to="/" onClick={isEnterHandler}>Home </Link>
+      <div className="logo"></div>
+      <li className="homebuttonafterlogin">
+        <Link to="/" onClick={isEnterHandler}>
+          Home{" "}
+        </Link>
       </li>
-      <li>
-        <Link to="/addroom">방 생성</Link>
+      <li className="roomcreatebutton">
+        <Link to="/addroom">+Room</Link>
       </li>
-      <li>
-        <Link to="/mypage">마이페이지</Link>
+      <li className="mypagebutton">
+        <Link to="/mypage">Mypage</Link>
       </li>
-      <li>
+      <li className="logoutbutton">
         <a href="/" onClick={onClick}>
-          로그아웃
+          Sign out
         </a>
       </li>
     </ul>
