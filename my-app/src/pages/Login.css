@@ -37,3 +37,194 @@
   font-size: 15px;
   color: white;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #dae9df;
+}
+
+.container {
+  width: 100px;
+  height: 50px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+/* 구체 왔다 갔다. (+ 색깔 변경) */
+/* .ball {
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  margin: 8px auto;
+  border-radius: 7px;
+}
+
+.ball:nth-child(1) {
+  background: #d9e2f1;
+  -webkit-animation: right 1.2s infinite ease-in-out;
+  -moz-animation: right 1.2s infinite ease-in-out;
+  animation: right 1.2s infinite ease-in-out, pulse1 5s ease infinite alternate;
+}
+
+.ball:nth-child(2) {
+  background: #d9e2f1;
+  -webkit-animation: left 1.25s infinite ease-in-out;
+  -moz-animation: left 1.25s infinite ease-in-out;
+  animation: left 1.25s infinite ease-in-out, pulse2 5s ease infinite alternate;
+}
+
+.ball:nth-child(3) {
+  background: #d9e2f1;
+  -webkit-animation: right 1.15s infinite ease-in-out;
+  -moz-animation: right 1.15s infinite ease-in-out;
+  animation: right 1.15s infinite ease-in-out, pulse3 5s ease infinite alternate;
+}
+
+.ball:nth-child(4) {
+  background: #d9e2f1;
+  -webkit-animation: left 1.25s infinite ease-in-out;
+  -moz-animation: left 1.25s infinite ease-in-out;
+  animation: left 1.25s infinite ease-in-out, pulse4 5s ease infinite alternate;
+} */
+
+.circling1 {
+  width: 45px;
+  height: 45px;
+  font-size: 35px;
+  background: red;
+  border-radius: 7px;
+  position: relative;
+  animation: mymove 11s infinite;
+}
+.circling2 {
+  width: 45px;
+  height: 45px;
+  font-size: 35px;
+  background: red;
+  border-radius: 7px;
+  position: relative;
+  animation: mymove 12s infinite;
+}
+.circling3 {
+  width: 45px;
+  height: 45px;
+  font-size: 35px;
+  background: red;
+  border-radius: 7px;
+  position: relative;
+  animation: mymove 13s infinite;
+}
+.circling4 {
+  width: 45px;
+  height: 45px;
+  font-size: 35px;
+  background: red;
+  border-radius: 7px;
+  position: relative;
+  animation: mymove 14s infinite;
+}
+
+@keyframes mymove {
+  0% {
+    top: 0px;
+    left: -120px;
+    background: red;
+  }
+  25% {
+    top: 0px;
+    left: 600px;
+    background: rgb(255, 0, 221);
+  }
+  50% {
+    top: 500px;
+    left: 600px;
+    background: rgb(17, 0, 255);
+  }
+  75% {
+    top: 500px;
+    left: -120px;
+    background: rgb(25, 224, 7);
+  }
+  100% {
+    top: 0px;
+    left: -120px;
+    background: rgb(238, 255, 0);
+  }
+}
+
+/* @keyframes mymove {
+  0% {
+    top: -40px;
+  }
+
+  25% {
+    top: 530px;
+  }
+
+  100% {
+    top: -40px;
+  }
+} */
+
+/* @keyframes pulse1 {
+  0%,
+  100% {
+    background-color: #ff0000;
+  }
+  50% {
+    background-color: #ff6600;
+  }
+}
+
+@keyframes pulse2 {
+  0%,
+  100% {
+    background-color: #ffff00;
+  }
+  50% {
+    background-color: #00ff66;
+  }
+}
+
+@keyframes pulse3 {
+  0%,
+  100% {
+    background-color: #0062ff;
+  }
+  50% {
+    background-color: #ff00cc;
+  }
+}
+
+@keyframes pulse4 {
+  0%,
+  100% {
+    background-color: #cc00ff;
+  }
+  50% {
+    background-color: #9900ff;
+  }
+}
+@keyframes right {
+  0% {
+    transform: translate(-25px);
+  }
+  50% {
+    transform: translate(25px);
+  }
+  100% {
+    transform: translate(-25px);
+  }
+}
+
+@keyframes left {
+  0% {
+    transform: translate(25px);
+  }
+  50% {
+    transform: translate(-25px);
+  }
+  100% {
+    transform: translate(25px);
+  }
+} */
