@@ -125,28 +125,28 @@ GENERIC BUTTON STYLES
 
 @keyframes mymove {
   0% {
-    top: 0px;
-    left: -120px;
+    top: 100%;
+    left: 0%;
     background: red;
   }
   25% {
     top: 0px;
-    left: 600px;
+    left: 80%;
     background: rgb(255, 0, 221);
   }
   50% {
-    top: 500px;
-    left: 600px;
+    top: 600px;
+    left: 80%;
     background: rgb(17, 0, 255);
   }
   75% {
-    top: 500px;
-    left: -120px;
+    top: 600px;
+    left: 0px;
     background: rgb(25, 224, 7);
   }
   100% {
     top: 0px;
-    left: -120px;
+    left: 0px;
     background: rgb(238, 255, 0);
   }
 }

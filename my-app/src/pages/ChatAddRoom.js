@@ -70,76 +70,78 @@ const ChatAddRoom = () => {
 
   return (
     <div className="chatAdd__container">
-      <form className="form__group" onSubmit={onSubmit}>
-        <h2 className="text">채팅방 정보를 입력해주세요!</h2>
-        <div
-          className="drop__zone"
-          style={{ width: 100, height: 100, border: "1px solid red" }}
-        >
-          <Dropzone onDrop={dropHandle} className="position">
-            {({ getRootProps, getInputProps }) => (
-              <div
-                style={{
-                  width: 100,
-                  height: 100,
-                  border: "1px solid red",
-                }}
-                {...getRootProps()}
-              >
-                <input {...getInputProps()} />
-                <PlusOutlined
+      <center>
+        <form className="form__group" onSubmit={onSubmit}>
+          <h2 className="text">채팅방 정보를 입력해주세요!</h2>
+          <div
+            className="drop__zone"
+            style={{ width: 100, height: 100, border: "1px solid red" }}
+          >
+            <Dropzone onDrop={dropHandle} className="position">
+              {({ getRootProps, getInputProps }) => (
+                <div
                   style={{
-                    fontSize: "3rem",
-
-                    justifyContent: "center",
-                    marginTop: "1rem",
+                    width: 100,
+                    height: 100,
+                    border: "1px solid red",
                   }}
-                />
-              </div>
-            )}
-          </Dropzone>
-          <div>
-            {Images.map((image, index) => (
-              <div key={index}>
-                <img src={`${process.env.REACT_APP_API_URL}/${image}`} />
-              </div>
-            ))}
+                  {...getRootProps()}
+                >
+                  <input {...getInputProps()} />
+                  <PlusOutlined
+                    style={{
+                      fontSize: "3rem",
+
+                      justifyContent: "center",
+                      marginTop: "1rem",
+                    }}
+                  />
+                </div>
+              )}
+            </Dropzone>
+            <div>
+              {Images.map((image, index) => (
+                <div key={index}>
+                  <img src={`${process.env.REACT_APP_API_URL}/${image}`} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="hobby-group">
-          <label className="name__text">Hobby </label>
-          <input
-            className="input__design"
-            type="text"
-            value={hobby}
-            name="hobby"
-            onChange={(e) => setHobby(e.target.value)}
-          />
-        </div>
-        <div className="roomname-group">
-          <label className="room__text">RoomName </label>
-          <input
-            className="input__design"
-            type="text"
-            value={roomName}
-            name="roomname"
-            onChange={(e) => setRoomName(e.target.value)}
-          />
-        </div>
-        <button
-          className="btn__create"
-          type="submit"
+          <div className="hobby-group">
+            <label className="name__text">Hobby </label>
+            <input
+              className="input__design"
+              type="text"
+              value={hobby}
+              name="hobby"
+              onChange={(e) => setHobby(e.target.value)}
+            />
+          </div>
+          <div className="roomname-group">
+            <label className="room__text">RoomName </label>
+            <input
+              className="input__design"
+              type="text"
+              value={roomName}
+              name="roomname"
+              onChange={(e) => setRoomName(e.target.value)}
+            />
+          </div>
+          <button
+            className="btn__create"
+            type="submit"
 
 
-          onClick={() => {
-            onSubmit();
-            window.location.replace("/")
-          }}
-        >
-          Create
-        </button>
+            onClick={() => {
+              onSubmit();
+              window.location.replace("/")
+            }}
+          >
+            Create
+          </button>
 
-      </form>
+        </form>
+      </center>
     </div>
   );
 };
