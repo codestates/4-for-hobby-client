@@ -56,17 +56,13 @@
   transition: 0.5s ease-in-out;
 }
 
-
 @media (max-width: 1000px) {
-
   .data-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-
 @media (max-width: 700px) {
-
   .data-list {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -82,8 +78,8 @@ h3 {
   font-weight: 500;
 }
 
-h4 {
-  color: yellow;
+.room-icon-name {
+  color: black;
   font-weight: 500;
 }
 
