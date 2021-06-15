@@ -1,0 +1,39 @@
+.form__container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  padding: 1rem 2rem;
+  max-width: 70%;
+  align-items: center;
+}
+
+.form {
+  display: block;
+  padding: 50px;
+  position: center;
+}
+.email-group {
+  display: flex;
+  line-height: 2rem;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+
+.password-group {
+  display: flex;
+  line-height: 2rem;
+  flex-direction: column;
+  margin-top: 1.5rem 0;
+}
+
+.btn {
+  margin-top: 2.5rem;
+  display: inline-block;
+  width: 100%;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: blue;
+  font-size: 15px;
+  color: white;
+}
