@@ -41,7 +41,10 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
         {isValid ? (
           <button
             className="btn-delete"
-            onClick={() => deleteData(data.roomName)}
+            onClick={() => {
+              deleteData(data.roomName)
+              window.location.replace("/")
+            }}
           >
             삭제
           </button>

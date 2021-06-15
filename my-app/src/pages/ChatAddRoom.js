@@ -128,9 +128,7 @@ const ChatAddRoom = () => {
         <button
           type="submit"
           onClick={() =>
-            setTimeout(() => {
-              history.push("/");
-            }, 1000)
+            window.location.replace("/")
           }
         >
           Create

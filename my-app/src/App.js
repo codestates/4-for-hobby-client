@@ -45,7 +45,7 @@ function App() {
         },
         withCredentials: true,
       });
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const deleteData = async (roomName) => {
@@ -55,7 +55,7 @@ function App() {
       );
       const newRoom = roomInfo.filter((room) => room.roomName !== roomName);
       setRoomInfo(newRoom);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const getRoomInfoHandler = () => {

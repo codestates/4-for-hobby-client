@@ -33,20 +33,13 @@ const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
           Home{" "}
         </Link>
       </li>
-
-      <li className="roomcreatebutton">
-        <Link to="/addroom">+Room</Link>
-      </li>
       <li className="mypagebutton">
         <Link to="/mypage">Mypage</Link>
-
-      {inAddRoom ? ""
-        : <li>
-          <Link to="/addroom" onClick={isInAddRoomHandler}>방 생성</Link>
-        </li>}
-      <li>
-        <Link to="/mypage">마이페이지</Link>
       </li>
+      {inAddRoom ? ""
+        : <li className="roomcreatebutton">
+          <Link to="/addroom" onClick={isInAddRoomHandler}>+Room</Link>
+        </li>}
       <li className="logoutbutton">
         <a href="/" onClick={onClick}>
           Sign out
