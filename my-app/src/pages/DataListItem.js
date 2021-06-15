@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 
 const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
   const history = useHistory();
-
+  console.log(data.id, "아이디");
   return (
     <div className="hobby__container">
       <div className="list">

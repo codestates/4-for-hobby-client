@@ -10,14 +10,6 @@ const ChatAddRoom = () => {
 
   let history = useHistory();
 
-  // const updateImages = (newImages) => {
-  //   setImages(newImages);
-  // };
-
-  const handleChange = (event) => {
-    setImages(URL.createObjectURL(event.target.files[0]));
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!hobby || !roomName) {
@@ -46,8 +38,6 @@ const ChatAddRoom = () => {
       <h2>채팅방 정보를 입력해주세요!</h2>
 
       <form onSubmit={onSubmit}>
-        <label>업로드</label>
-        <input type="file" onChange={handleChange} />
         <div className="hobby-group">
           <label>Hobby </label>
           <input
