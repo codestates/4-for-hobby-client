@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { useHistory } from "react-router";
 import './App.css';
 
 import axios from "axios";
@@ -15,65 +14,54 @@ import ChattingRoom from "./pages/ChattingRoom";
 import MainPage from "./pages/MainPage";
 import MypageEdit from "./pages/MypageEdit";
 import Navbar from "./pages/Navbar";
-import NavbarCopy from "./pages/Navbar copy"
 import NotFound from "./pages/NotFound";
 dotenv.config();
 
 function App() {
-
-
-  const [roomInfo, setRoomInfo] = useState("");
-  const [datas, setDatas] = useState("");
+  const [roomInfo, setRoomInfo] = useState([]);
   const [innerRoomId, setInnerRoomId] = useState("");
   const [isEnter, setIsEnter] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
 
-
-  const history = useHistory();
   const accessToken = localStorage.getItem('token');
 
-
-  const isLoginHandler = () => {
-    setIsLogin(true);
-  }
-
-  // const logoutHandler = () => {
-  //   setIsLogin(false);
-  // }
-
   const isEnterHandler = async () => {
-    setIsEnter(false);
-    await axios.post(`${process.env.REACT_APP_API_URL}/exitroom`,
-      null,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json"
-        },
-        withCredentials: true
-      }
-    )
-  }
+    try {
+      setIsEnter(false);
+      await axios.post(`${process.env.REACT_APP_API_URL}/exitroom`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+          },
+          withCredentials: true
+        }
+      )
+    } catch (error) {
 
-  // const addData = (data) => {
-  //   const id = Math.floor(Math.random() * 5000) + 1;
-  //   const newData = { id, ...data };
-  //   setDatas([...datas, newData]);
-  // };
+    }
+
+  }
 
   const deleteData = async (roomName) => {
-    await axios.delete(`http://localhost:80/deleteroom/${roomName}`);
-    const newRoom = roomInfo.filter((room) => room.roomName !== roomName);
-    setRoomInfo(newRoom);
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/deleteroom/${roomName}`);
+      const newRoom = roomInfo.filter((room) => room.roomName !== roomName);
+      setRoomInfo(newRoom);
+    } catch (error) {
+
+    }
+
   };
 
-
-  const getRoomInfoHandler = async () => {
-
-    await axios.get(`${process.env.REACT_APP_API_URL}/`)
+  const getRoomInfoHandler = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/`)
       .then((res) => {
-        setRoomInfo(res.data.data.roomInfo);
+        const { roomData } = res.data.data;
+        setRoomInfo(roomData);
       })
+
+
 
   }
 
@@ -133,7 +121,7 @@ function App() {
           ></Route>
 
 
-          <Route exact path='/login' render={() => <Login isLoginHandler={isLoginHandler} />} />
+          <Route exact path='/login' render={() => <Login />} />
           <Route exact path='/signup' render={() => <Signup />} />
           <Route exact path='/mypage' render={() => <Mypage />} />
           <Route exact path='/mypageupdateuser' render={() => <MypageEdit />} />

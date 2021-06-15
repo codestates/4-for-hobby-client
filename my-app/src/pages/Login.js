@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './Login.css'
 import dotenv from "dotenv";
 dotenv.config();
 
 axios.defaults.withCredentials = true;
 
-const Login = ({ isLoginHandler }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
-
-  const history = useHistory();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +34,7 @@ const Login = ({ isLoginHandler }) => {
   const authToken = localStorage.getItem("token");
 
   if (isLogin || authToken) {
-    return <Redirect to="/"></Redirect>;
+    window.location.replace("/")
   }
 
   return (
@@ -62,7 +60,6 @@ const Login = ({ isLoginHandler }) => {
         <button
           type="submit"
           className="btn"
-          onClick={() => isLoginHandler()}
         >
           로그인
         </button>
