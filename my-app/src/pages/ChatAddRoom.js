@@ -129,6 +129,8 @@ const ChatAddRoom = () => {
         <button
           className="btn__create"
           type="submit"
+
+
           onClick={() => {
             onSubmit();
             window.location.replace("/")
@@ -136,6 +138,7 @@ const ChatAddRoom = () => {
         >
           Create
         </button>
+
       </form>
     </div>
   );

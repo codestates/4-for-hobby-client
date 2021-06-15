@@ -4,6 +4,10 @@
   text-align: center;
   /* background-color: #f5f5f5; */
   background-color: wheat;
+  flex-direction: column;
+  display: grid;
+  /* grid-template-columns: 3fr 1fr;
+  column-gap: 20px; */
 }
 
 .form__group {
@@ -14,6 +18,15 @@
   margin-right: 5rem;
   border: 3px solid black;
   padding: 80px 200px;
+}
+
+.form__group .name__text {
+  padding: 10px;
+  text-align: center;
+}
+
+.form__group .room__text {
+  padding: 5px;
 }
 
 .label__up {
@@ -39,7 +52,6 @@
 
 .hobby-group {
   margin-top: 3rem;
-  margin-left: 0.1rem;
   height: 80px;
   text-align: center;
   justify-content: center;
@@ -47,15 +59,15 @@
 }
 
 .input__design {
-  /* width: 250px; */
   border: none;
   border-radius: 50px;
   outline: none;
+  width: 100%;
 }
 
 .roomname-group {
   margin-top: 3rem;
-  margin-left: 0.1rem;
+  margin-left: -1rem;
   height: 80px;
   margin-bottom: 3rem;
   text-align: center;
@@ -76,12 +88,14 @@ a {
   background-color: blue;
   border-radius: 50px;
   color: white;
-  width: 50%;
+  width: 30%;
   height: 55px;
   font-size: 15px;
   border-radius: 25px;
-  margin-left: 15rem;
-  cursor:pointer;
+
+cursor:pointer;
+  width: 100%;
+
 }
 
 .btn__back {
@@ -92,11 +106,12 @@ a {
   padding: 20px;
   background-color: blue;
   color: white;
-  width: 50%;
+  width: 30%;
   height: 55px;
   font-size: 15px;
   border-radius: 25px;
-  margin-left: 15rem;
+
+  width: 100%;
 }
 
 .name__text {
