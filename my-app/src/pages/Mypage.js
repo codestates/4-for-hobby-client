@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: "48ch",
+      width: "35ch",
+      background: "white"
     },
   },
 }));
@@ -79,9 +80,7 @@ function Mypage() {
   return (
     <div>
       <center>
-        <h1>
-          Mypage
-        </h1>
+        <h1 className="title"> MyPage </h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
             <TextField
@@ -148,19 +147,19 @@ function Mypage() {
             />
           </div>
           <div>
-            <button
-              className="btn"
+            <div
+              className="col three"
               onClick={() => {
                 history.push("/mypageupdateuser");
               }}
             >
-              편집
-            </button>
+              <a href="#" className="btn-mypage btn-sea"> Edit </a>
+            </div>
           </div>
           {errorMessage ? <div>{errorMessage}</div> : ""}
         </form>
       </center>
-    </div>
+    </div >
   );
 }
 
