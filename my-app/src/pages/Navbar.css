@@ -1,8 +1,9 @@
 .navbar {
   padding: 0px;
+
   margin-top: 0px;
   height: 60px;
-  width: 800px;
+  width: 100%;
   position: relative;
   border-bottom: solid 1px;
 }

@@ -10,7 +10,6 @@ const MainpageItem = ({ roomInfo, deleteData, enterRoomHandler }) => {
       <div className="search__area">
         <form
           className="search__container"
-          style={{ marginLeft: "25rem", marginBottom: "10rem" }}
         >
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
