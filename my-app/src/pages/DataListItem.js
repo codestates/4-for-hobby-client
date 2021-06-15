@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./DataListItem.css";
-import { useHistory } from "react-router";
+import dotenv from "dotenv";
+dotenv.config();
 
 const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
-  const history = useHistory();
-  console.log(data.id, "아이디");
+  const accessToken = localStorage.getItem("token");
+  const [name, setName] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  const deleteBtnHandler = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        const { name } = res.data.data.userInfo;
+        setName(name);
+        if (name === data.name) setIsValid(true);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    deleteBtnHandler();
+  }, []);
+
   return (
     <div className="hobby__container">
       <div className="list">
@@ -13,11 +37,15 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
         <p> 방 이름: {data.roomName}</p>
         <p> 관심사: {data.hobby}</p>
       </div>
-      <button onClick={() => deleteData(data.roomName)}>삭제</button>
+
+      {isValid ? (
+        <button onClick={() => deleteData(data.roomName)}>삭제</button>
+      ) : (
+        ""
+      )}
       <button
         onClick={() => {
           enterRoomHandler(data.id);
-          history.push("/enterroom");
         }}
       >
         입장

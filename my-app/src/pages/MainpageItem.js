@@ -26,7 +26,7 @@ const MainpageItem = ({ roomInfo, deleteData, enterRoomHandler }) => {
           .filter((val) => {
             if (searchTerm === "") {
               return val;
-            } else if (val.roomName.includes(searchTerm)) {
+            } else if (val.hobby.includes(searchTerm)) {
               return val;
             }
           })

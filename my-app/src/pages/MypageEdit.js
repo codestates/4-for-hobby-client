@@ -4,6 +4,7 @@ import axios from "axios";
 import './MypageEdit.css';
 import { useHistory } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
+import dotenv from "dotenv";
 
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -13,6 +14,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FormControl from '@material-ui/core/FormControl';
+dotenv.config();
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,9 +44,9 @@ function MypageEdit() {
   const classes = useStyles();
   const history = useHistory();
 
-  const userInfoHandler = () => {
+  const userInfoHandler = async () => {
     const accessToken = localStorage.getItem('token');
-    axios.get("http://localhost:80/mypage", {
+    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"
@@ -61,9 +63,9 @@ function MypageEdit() {
       .catch((err) => console.log(err));
   }
 
-  const updateHandler = () => {
+  const updateHandler = async () => {
     //console.log(password.value, mobile)
-    axios.put("http://localhost:80/mypageupdateuser",
+    await axios.put(`${process.env.REACT_APP_API_URL}/mypageupdateuser`,
       { email: email, password: password.value, mobile: mobile })
   }
 
@@ -151,7 +153,7 @@ function MypageEdit() {
               className="btn"
               onClick={() => {
                 updateHandler()
-                setTimeout(history.push('/mypage'), 5000)
+                setTimeout(history.push('/mypage'), 1000)
               }}
             >
               저장

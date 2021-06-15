@@ -47,3 +47,7 @@ input[type='chatting']
   padding: 0.4rem;
   margin: 0.4rem;
 }
+
+.title {
+  text-align: center;
+}

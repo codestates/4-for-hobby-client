@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ isEnterHandler }) => {
   const authToken = localStorage.getItem("token");
 
   const onClick = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/">Home </Link>
+        <Link to="/" >Home </Link>
       </li>
       <li>
         <Link to="/login">로그인 </Link>
@@ -26,7 +26,7 @@ const Navbar = () => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/">Home </Link>
+        <Link to="/" onClick={isEnterHandler}>Home </Link>
       </li>
       <li>
         <Link to="/addroom">방 생성</Link>
