@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import Dropzone from 'react-dropzone';
-import { PlusOutlined } from '@ant-design/icons'
-import axios from 'axios';
+import Dropzone from "react-dropzone";
+import { PlusOutlined } from "@ant-design/icons";
+import axios from "axios";
 import "./ChatAddRoom.css";
 import { Link, useHistory } from "react-router-dom";
 import dotenv from "dotenv";
 dotenv.config();
 
-
 const ChatAddRoom = () => {
   const [roomName, setRoomName] = useState("");
   const [hobby, setHobby] = useState("");
 
-
   const [image, setImage] = useState(null);
   const [Images, setImages] = useState([]);
-  
-   let history = useHistory();
 
+  let history = useHistory();
 
   const handleChange = (event) => {
     setImages(URL.createObjectURL(event.target.files[0]));
@@ -50,19 +47,25 @@ const ChatAddRoom = () => {
     let formData = new FormData();
 
     const config = {
-      header: { 'content-type': 'multipart/form-data' },
+      header: { "content-type": "multipart/form-data" },
     };
-    formData.append('file', files[0]);
+    formData.append("file", files[0]);
 
-    await axios.post(`${process.env.REACT_APP_API_URL}/api/product/image`, formData, config).then((response) => {
-      if (response.data.success) {
-        console.log(response.data);
-        setImages([...Images, response.data.filePath]);
-      } else {
-        alert('파일을 저장하는데 실패했습니다.');
-        console.log(response.data.err);
-      }
-    });
+    await axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/api/product/image`,
+        formData,
+        config
+      )
+      .then((response) => {
+        if (response.data.success) {
+          console.log(response.data);
+          setImages([...Images, response.data.filePath]);
+        } else {
+          alert("파일을 저장하는데 실패했습니다.");
+          console.log(response.data.err);
+        }
+      });
   };
 
   return (
@@ -76,27 +79,30 @@ const ChatAddRoom = () => {
         <div style={{ width: 100, height: 100, border: "1px solid red" }}>
           <Dropzone onDrop={dropHandle}>
             {({ getRootProps, getInputProps }) => (
-              <div style={{
-                width: 100, height: 100, border: "1px solid red"
-                ,
-              }}
+              <div
+                style={{
+                  width: 100,
+                  height: 100,
+                  border: "1px solid red",
+                }}
                 {...getRootProps()}
               >
                 <input {...getInputProps()} />
-                <PlusOutlined style={{
-                  fontSize: "3rem", display: "flex",
-                  justifyContent: "center", marginTop: "1rem"
-                }} />
+                <PlusOutlined
+                  style={{
+                    fontSize: "3rem",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "1rem",
+                  }}
+                />
               </div>
             )}
           </Dropzone>
-          <div
-          >
+          <div>
             {Images.map((image, index) => (
               <div key={index}>
-                <img
-                  src={`${process.env.REACT_APP_API_URL}/${image}`}
-                />
+                <img src={`${process.env.REACT_APP_API_URL}/${image}`} />
               </div>
             ))}
           </div>
