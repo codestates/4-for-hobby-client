@@ -57,30 +57,6 @@ const Login = () => {
         {check ? "🎬" : "📚"}
       </button>
 
-      <form className="form" onSubmit={onSubmit}>
-        <div className="email-group">
-          <label>Email </label>
-          <input
-            type="email"
-            placeholder="please type your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="password-group">
-          <label>Password </label>
-          <input
-            type="password"
-            placeholder="please type your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn">
-          로그인
-        </button>
-      </form>
       {/* <div>
         <div class="ball">🚲</div>
         <div class="ball">⚽️</div>

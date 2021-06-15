@@ -34,19 +34,25 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
     <div className="hobby__container">
       <div className="list">
         <div>
-          <h3 className="font"> 방 생성자: {data.name}</h3>
-          <h4> 방 이름: {data.roomName}</h4>
-          <p> 관심사: {data.hobby}</p>
+          <h3 className="font">
+            {" "}
+            <i class="fas fa-user"></i> {data.name}
+          </h3>
+          <h4 className="room-icon-name">
+            {" "}
+            <i class="fas fa-comments"></i> {data.roomName}
+          </h4>
+          <p> 취미: {data.hobby}</p>
         </div>
         {isValid ? (
           <button
             className="btn-delete"
             onClick={() => {
-              deleteData(data.roomName)
-              window.location.replace("/")
+              deleteData(data.roomName);
+              window.location.replace("/");
             }}
           >
-            삭제
+            <i class="fas fa-trash-alt"></i> 삭제
           </button>
         ) : (
           ""
@@ -57,7 +63,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
             enterRoomHandler(data.id);
           }}
         >
-          입장
+          <i class="fas fa-sign-in-alt"></i> 입장
         </button>
       </div>
     </div>
