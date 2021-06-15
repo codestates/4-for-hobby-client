@@ -70,14 +70,13 @@ const ChatAddRoom = () => {
 
   return (
     <div className="chatAdd__container">
-      <h2>채팅방 정보를 입력해주세요!</h2>
-
-      <form onSubmit={onSubmit}>
-        <label>업로드</label>
-        <input type="file" onChange={handleChange} />
-
-        <div style={{ width: 100, height: 100, border: "1px solid red" }}>
-          <Dropzone onDrop={dropHandle}>
+      <form className="form__group" onSubmit={onSubmit}>
+        <h2 className="text">채팅방 정보를 입력해주세요!</h2>
+        <div
+          className="drop__zone"
+          style={{ width: 100, height: 100, border: "1px solid red" }}
+        >
+          <Dropzone onDrop={dropHandle} className="position">
             {({ getRootProps, getInputProps }) => (
               <div
                 style={{
@@ -91,7 +90,7 @@ const ChatAddRoom = () => {
                 <PlusOutlined
                   style={{
                     fontSize: "3rem",
-                    display: "flex",
+
                     justifyContent: "center",
                     marginTop: "1rem",
                   }}
@@ -108,8 +107,9 @@ const ChatAddRoom = () => {
           </div>
         </div>
         <div className="hobby-group">
-          <label>Hobby </label>
+          <label className="name__text">Hobby </label>
           <input
+            className="input__design"
             type="text"
             value={hobby}
             name="hobby"
@@ -117,8 +117,9 @@ const ChatAddRoom = () => {
           />
         </div>
         <div className="roomname-group">
-          <label>RoomName </label>
+          <label className="room__text">RoomName </label>
           <input
+            className="input__design"
             type="text"
             value={roomName}
             name="roomname"
@@ -126,6 +127,7 @@ const ChatAddRoom = () => {
           />
         </div>
         <button
+          className="btn__create"
           type="submit"
           onClick={() =>
             setTimeout(() => {
@@ -135,7 +137,9 @@ const ChatAddRoom = () => {
         >
           Create
         </button>
-        <Link to="/">Go back </Link>
+        <Link to="/" className="btn__back">
+          Go back{" "}
+        </Link>
       </form>
     </div>
   );
