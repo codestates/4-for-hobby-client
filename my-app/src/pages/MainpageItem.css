@@ -5,7 +5,7 @@
   width: 450px;
   border-radius: 50px;
   background-color: whitesmoke;
-  padding:5px;
+  padding: 5px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -39,7 +39,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
   margin-left: 5rem;
-  margin-right: 5rem
+  margin-right: 5rem;
 }
 
 .list {
@@ -56,17 +56,17 @@
   transition: 0.5s ease-in-out;
 }
 
-/* @media (max-width: 500px) {
-  .list {
+@media (max-width: 1000px) {
+  .data-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 300px) {
-  .list {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .data-list {
+    grid-template-columns: repeat(1, 1fr);
   }
-} */
+}
 
 .list:hover {
   transform: translateY(-6px);

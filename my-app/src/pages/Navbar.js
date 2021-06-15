@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
-
   const authToken = localStorage.getItem("token");
 
   const onClick = () => {
@@ -14,34 +13,52 @@ const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
     <ul>
       <div className="logo"></div>
       <li className="homebuttonbeforelogin">
-        <Link to="/">Home</Link>
+        <Link className="navbuttoncolor" to="/">
+          Home
+        </Link>
       </li>
       <li className="loginbutton">
-        <Link to="/login">Sign in</Link>
+        <Link className="navbuttoncolor" to="/login">
+          Sign in
+        </Link>
       </li>
       <li className="signupbutton">
-        <Link to="/signup">Sign up</Link>
+        <Link className="navbuttoncolor" to="/signup">
+          Sign up
+        </Link>
       </li>
     </ul>
   );
 
   const authLinks = (
-    <ul>
+    <ul className="navactive">
       <div className="logo"></div>
       <li className="homebuttonafterlogin">
-        <Link to="/" onClick={isEnterHandler}>
+        <Link className="navbuttoncolor" to="/" onClick={isEnterHandler}>
           Home{" "}
         </Link>
       </li>
+
+      {inAddRoom ? (
+        ""
+      ) : (
+        <li className="roomcreatebutton">
+          <Link
+            className="navbuttoncolor"
+            to="/addroom"
+            onClick={isInAddRoomHandler}
+          >
+            +Room
+          </Link>
+        </li>
+      )}
       <li className="mypagebutton">
-        <Link to="/mypage">Mypage</Link>
+        <Link className="navbuttoncolor" to="/mypage">
+          Mypage
+        </Link>
       </li>
-      {inAddRoom ? ""
-        : <li className="roomcreatebutton">
-          <Link to="/addroom" onClick={isInAddRoomHandler}>+Room</Link>
-        </li>}
       <li className="logoutbutton">
-        <a href="/" onClick={onClick}>
+        <a className="navbuttoncolor" href="/" onClick={onClick}>
           Sign out
         </a>
       </li>
