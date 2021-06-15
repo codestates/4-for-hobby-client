@@ -20,13 +20,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: '48ch',
+      width: '35ch',
+      background: "white"
     },
     margin: {
       margin: theme.spacing(1),
+      background: "white"
     },
     textField: {
-      width: '25ch',
+      width: '50ch',
+      background: "white"
     },
   },
 }));
@@ -88,7 +91,7 @@ function MypageEdit() {
   return (
     <div>
       <center>
-        <h1>Mypage Edit</h1>
+        <h1 className="title"> MyPage Edit</h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
             <TextField
@@ -145,19 +148,21 @@ function MypageEdit() {
             />
           </div>
           <div>
-            <button
-              className="btn"
+            <span
+              className="col three"
               onClick={() => { history.push('/mypage') }}
-            >취소</button>
-            <button
-              className="btn"
+            >
+              <a href="#" className="btn-sea btn-edit"> Cancel </a>
+            </span>
+            <span
+              className="col three"
               onClick={() => {
                 updateHandler()
                 setTimeout(history.push('/mypage'), 1000)
               }}
             >
-              저장
-            </button>
+              <a href="#" className="btn-sea btn-edit"> Save </a>
+            </span>
           </div>
           {errorMessage ?
             <div>

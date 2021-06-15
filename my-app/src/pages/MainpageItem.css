@@ -1,14 +1,13 @@
-.search__area {
-  margin-left: 10rem;
-}
-
 .search__container {
-  margin-left: 60rem;
+  margin-top: 3rem;
   margin-bottom: 10rem;
-  height: 40px;
+  height: 60px;
   width: 450px;
   border-radius: 50px;
   background-color: whitesmoke;
+  padding:5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search__text {
@@ -39,6 +38,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
+  margin-left: 5rem;
+  margin-right: 5rem
 }
 
 .list {
