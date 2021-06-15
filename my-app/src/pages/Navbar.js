@@ -11,12 +11,10 @@ const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
 
   const guestLinks = (
     <ul>
-      <div className="logo"></div>
-      <li className="homebuttonbeforelogin">
-        <Link className="navbuttoncolor" to="/">
-          Home
-        </Link>
-      </li>
+      <div className="logo" onClick={() => {
+        isEnterHandler();
+        window.location.replace("/");
+      }}></div>
       <li className="loginbutton">
         <Link className="navbuttoncolor" to="/login">
           Sign in
@@ -32,13 +30,10 @@ const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
 
   const authLinks = (
     <ul className="navactive">
-      <div className="logo"></div>
-      <li className="homebuttonafterlogin">
-        <Link className="navbuttoncolor" to="/" onClick={isEnterHandler}>
-          Home{" "}
-        </Link>
-      </li>
-
+      <div className="logo" onClick={() => {
+        isEnterHandler();
+        window.location.replace("/");
+      }}></div>
       {inAddRoom ? (
         ""
       ) : (

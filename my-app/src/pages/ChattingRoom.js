@@ -110,7 +110,7 @@ function ChattingRoom({ roomId }) {
           <li>
             {logs.map((e, index) => {
               if (e.id === "" || e.message === "") return;
-              if (e.id === id) {
+              else if (e.id === id) {
                 return <div className="me" key={index}>
                   <span className="entete" >
                     <h2>{e.name}</h2>
