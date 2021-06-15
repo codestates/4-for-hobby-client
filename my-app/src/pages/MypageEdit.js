@@ -46,7 +46,7 @@ function MypageEdit() {
 
   const userInfoHandler = async () => {
     const accessToken = localStorage.getItem('token');
-    await axios.get(`${process.env.REACT_APP_API_URL}:80/mypage`, {
+    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"
@@ -153,7 +153,7 @@ function MypageEdit() {
               className="btn"
               onClick={() => {
                 updateHandler()
-                setTimeout(history.push('/mypage'), 5000)
+                setTimeout(history.push('/mypage'), 1000)
               }}
             >
               저장

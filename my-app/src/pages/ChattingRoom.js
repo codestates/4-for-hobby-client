@@ -14,11 +14,12 @@ function ChattingRoom({ roomId }) {
   const [id, setId] = useState("");
   const [logs, setLogs] = useState([]);
   const [users, setUsers] = useState([]);
+  const [count, setCount] = useState(0);
 
   const accessToken = localStorage.getItem('token');
 
-  const getUserNameHandler = async () => {
-    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
+  const getUserNameHandler = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json"
@@ -32,8 +33,8 @@ function ChattingRoom({ roomId }) {
       })
   }
 
-  const getUserListHandler = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/getroomusers`,
+  const getUserListHandler = () => {
+    axios.post(`${process.env.REACT_APP_API_URL}/getroomusers`,
       { roomId }
       , {
         headers: {
@@ -48,18 +49,18 @@ function ChattingRoom({ roomId }) {
       })
   }
 
-  const sendMessageHandler = async (e) => {
-    e.preventDefault();
-    await socket.emit('send', {
+  const sendMessageHandler = (e) => {
+    //e.preventDefault();
+    socket.emit('send', {
       name: name,
       message: chatting,
       id: id
     })
-    setChatting("");
+    setChatting("")
   }
 
-  const getMessageHandler = async () => {
-    await socket.on('sendAll', (data) => {
+  const getMessageHandler = () => {
+    socket.on('sendAll', (data) => {
       // console.log(data)
       setLogs([...logs, data]);
     })
@@ -67,8 +68,15 @@ function ChattingRoom({ roomId }) {
 
   useEffect(() => {
     getUserNameHandler();
-    getUserListHandler();
   }, [])
+
+  useEffect(() => {
+    if (count >= 3) return;
+    setTimeout(() => {
+      setCount(count + 1);
+    }, 100);
+    getUserListHandler();
+  }, [count])
 
   useEffect(() => {
     getMessageHandler();
@@ -86,7 +94,7 @@ function ChattingRoom({ roomId }) {
             </div>
           })}
         </div>
-        <form onSubmit={sendMessageHandler} className="chatBox">
+        <form onSubmit={e => e.preventDefault()} className="chatBox">
           {logs.map((e, index) => {
             if (e.id === id) {
               return <div className="my-chat" key={index}>
@@ -104,7 +112,7 @@ function ChattingRoom({ roomId }) {
             onChange={(e) => setChatting(e.target.value)}
             value={chatting}
           ></input>
-          <button className="btn">전송</button>
+          <button onClick={sendMessageHandler} className="btn">전송</button>
         </form>
       </div>
     </div>

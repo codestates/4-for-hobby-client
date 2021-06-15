@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
-  const history = useHistory();
 
   const accessToken = localStorage.getItem('token');
   const [name, setName] = useState("");
@@ -40,7 +39,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
       </div>
 
       {isValid ? <button
-        onClick={() => deleteData(data.id)}>
+        onClick={() => deleteData(data.roomName)}>
         삭제</button>
         : ""}
       <button onClick={() => {

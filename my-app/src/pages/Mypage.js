@@ -54,7 +54,7 @@ function Mypage() {
       },
       withCredentials: true
     })
-        .then((res) => {
+      .then((res) => {
         const { email, password, name, mobile } = res.data.data.userInfo;
         setEmail(email);
         setPassword({ ...password, value: password });
@@ -81,14 +81,6 @@ function Mypage() {
       <center>
         <h1>
           Mypage
-          <button
-            className="btn right"
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            초기화면
-          </button>
         </h1>
         <form className={classes.root} noValidate autoComplete="off">
           <div>
