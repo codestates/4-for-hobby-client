@@ -1,6 +1,5 @@
 .navbar {
   padding: 0px;
-
   margin-top: 0px;
   height: 60px;
   width: 100%;
@@ -24,7 +23,6 @@ ul {
   list-style: none;
   padding: 3px;
   position: relative;
-  left: -30px;
 }
 
 li {
