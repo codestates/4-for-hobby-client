@@ -81,6 +81,7 @@ a {
   font-size: 15px;
   border-radius: 25px;
   margin-left: 15rem;
+  cursor:pointer;
 }
 
 .btn__back {

@@ -73,7 +73,7 @@
 }
 
 .list:hover {
-  transform: rotateZ(180deg);
+  transform: rotateZ(360deg);
   transition: all 0.2s ease-in;
 }
 

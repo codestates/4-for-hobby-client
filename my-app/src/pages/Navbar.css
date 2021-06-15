@@ -44,6 +44,7 @@ div.logo {
   position: absolute;
   left: 100px;
   top: 8px;
+  cursor:pointer;
 }
 
 ul {
@@ -83,6 +84,7 @@ li.loginbutton {
   position: absolute;
   right: 14rem;
   top: 6px;
+  padding-top: 5px;
 }
 li.loginbutton:hover {
   background-color: #e0e0e0;
@@ -107,6 +109,7 @@ li.signupbutton {
   position: absolute;
   right: 9rem;
   top: 6px;
+  padding-top: 5px;
 }
 li.signupbutton:hover {
   background-color: #e0e0e0;
@@ -130,6 +133,7 @@ li.roomcreatebutton {
   position: absolute;
   right: 19rem;
   top: 6px;
+  padding-top: 6px;
 }
 
 li.mypagebutton {
@@ -144,6 +148,7 @@ li.mypagebutton {
   position: absolute;
   right: 14rem;
   top: 6px;
+  padding-top: 5px;
 }
 li.mypagebutton:hover {
   background-color: #e0e0e0;
@@ -167,6 +172,7 @@ li.logoutbutton {
   position: absolute;
   right: 9rem;
   top: 6px;
+  padding-top: 5px;
 }
 
 li.logoutbutton:hover {
