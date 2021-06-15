@@ -56,17 +56,17 @@
   transition: 0.5s ease-in-out;
 }
 
-/* @media (max-width: 500px) {
-  .list {
+@media (max-width: 800px) {
+  .data-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 300px) {
-  .list {
-    grid-template-columns: 1fr;
+@media (max-width: 500px) {
+  .data-list {
+    grid-template-columns: repeat(1, 1fr);
   }
-} */
+}
 
 .list:hover {
   transform: translateY(-6px);
