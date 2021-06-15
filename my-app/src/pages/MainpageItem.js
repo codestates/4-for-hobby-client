@@ -7,10 +7,9 @@ const MainpageItem = ({ roomInfo, deleteData, enterRoomHandler }) => {
 
   return roomInfo ? (
     <div>
-      <div>
+      <div className="search__area">
         <form
           className="search__container"
-          style={{ marginLeft: "25rem", marginBottom: "10rem" }}
         >
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -21,23 +20,25 @@ const MainpageItem = ({ roomInfo, deleteData, enterRoomHandler }) => {
           />
         </form>
       </div>
-      <div className="data-list">
-        {roomInfo
-          .filter((val) => {
-            if (searchTerm === "") {
-              return val;
-            } else if (val.hobby.includes(searchTerm)) {
-              return val;
-            }
-          })
-          .map((data) => (
-            <DataListItem
-              key={data.id}
-              deleteData={deleteData}
-              data={data}
-              enterRoomHandler={enterRoomHandler}
-            ></DataListItem>
-          ))}
+      <div>
+        <div className="data-list">
+          {roomInfo
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (val.hobby.includes(searchTerm)) {
+                return val;
+              }
+            })
+            .map((data) => (
+              <DataListItem
+                key={data.id}
+                deleteData={deleteData}
+                data={data}
+                enterRoomHandler={enterRoomHandler}
+              ></DataListItem>
+            ))}
+        </div>
       </div>
     </div>
   ) : (

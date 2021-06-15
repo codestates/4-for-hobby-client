@@ -84,37 +84,61 @@ function ChattingRoom({ roomId }) {
 
 
   return (
-    <div>
-      <div className="container">
-        <div className="user-list">
-          <div className="title">제목입니다</div>
-          {users.map((user, index) => {
-            return <div className="user" key={index}>
-              내 이름은 {user.name} 입니다.
-            </div>
-          })}
-        </div>
-        <form onSubmit={e => e.preventDefault()} className="chatBox">
-          {logs.map((e, index) => {
-            if (e.id === id) {
-              return <div className="my-chat" key={index}>
-                {e.name} : {e.message}
-              </div>
-            } else {
-              return <div className="chat" key={index}>
-                {e.name} : {e.message}
-              </div>
-            }
-          })}
+    <div className="container">
+      <aside>
+        <header>
+          대화상대
+        </header>
+        <ul className="user-list">
+          <li>
+            {users.map((user, index) => (
+              <span key={index}>
+                <h1>{user.name}</h1>
+              </span>
 
-          <input
-            type="chatting"
+            ))}
+          </li>
+        </ul>
+      </aside>
+      <main>
+        <header>
+          <div>
+            <h2>채팅내용</h2>
+          </div>
+        </header>
+        <ul className="chat">
+          <li>
+            {logs.map((e, index) => {
+              if (e.id === "" || e.message === "") return;
+              if (e.id === id) {
+                return <div className="me" key={index}>
+                  <span className="entete" >
+                    <h2>{e.name}</h2>
+                  </span>
+                  <div className="triangle"></div>
+                  <h2 className="message">{e.message}</h2>
+                </div>
+              } else {
+                return <div className="you" key={index}>
+                  <span className="entete" >
+                    <h2>{e.name}</h2>
+                  </span>
+                  <div className="triangle"></div>
+                  <div className="message">{e.message}</div>
+                </div>
+              }
+            })}
+          </li>
+        </ul>
+        <footer>
+          <textarea
+            placeholder="대화를 입력하세요"
             onChange={(e) => setChatting(e.target.value)}
             value={chatting}
-          ></input>
-          <button onClick={sendMessageHandler} className="btn">전송</button>
-        </form>
-      </div>
+          ></textarea>
+          <a href="#" onClick={sendMessageHandler}>전송</a>
+        </footer>
+      </main>
     </div>
   )
 }

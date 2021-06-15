@@ -1,3 +1,219 @@
-.saint {
-  font-size: 20px;
+.chatAdd__container {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background-color: #f5f5f5; */
+  background-color: wheat;
 }
+
+.form__group {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  border: 3px solid black;
+  padding: 80px 200px;
+}
+
+.label__up {
+  padding: 5px 5px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.text {
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: green;
+}
+
+.drop__zone {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+.hobby-group {
+  margin-top: 3rem;
+  margin-left: 0.1rem;
+  height: 80px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__design {
+  /* width: 250px; */
+  border: none;
+  border-radius: 50px;
+  outline: none;
+}
+
+.roomname-group {
+  margin-top: 3rem;
+  margin-left: 0.1rem;
+  height: 80px;
+  margin-bottom: 3rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn__create {
+  margin-top: 2rem;
+  border: none;
+  display: block;
+  /* width: 200px; */
+  padding: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  color: white;
+  width: 50%;
+  height: 55px;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-left: 15rem;
+}
+
+.btn__back {
+  margin-top: 2rem;
+  border: none;
+  display: block;
+  /* width: 200px; */
+  padding: 20px;
+  background-color: blue;
+  color: white;
+  width: 50%;
+  height: 55px;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-left: 15rem;
+}
+
+.name__text {
+  font-weight: 600;
+  color: red;
+}
+
+.room__text {
+  font-weight: 600;
+  color: red;
+}
+
+@media all and (min-width: 480px) and (max-width: 1300px) {
+  .chatAdd__container {
+    background-color: whitesmoke;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+  .text {
+    font-size: 20px;
+    flex-direction: column;
+  }
+
+  .input__design {
+    margin-right: 400px;
+    flex-direction: column;
+  }
+
+  .hobby-group {
+    flex-direction: column;
+  }
+
+  .btn__create {
+    margin-left: 2rem;
+    width: 400px;
+  }
+
+  .btn__back {
+    margin-left: 2rem;
+    width: 400px;
+  }
+  /* 
+
+  .form__group {
+    width: 100%;
+    padding: 20 50px;
+  }
+
+
+  */
+}
+
+/* @media screen and (max-width: 1000px) {
+  .chatAdd__container {
+    justify-content: center;
+    background-color: wheat;
+    align-items: center;
+    display: block;
+  }
+
+  .form__group {
+    align-items: center;
+    justify-content: center;
+    padding: 20 50px;
+  }
+
+  .input__design {
+    width: 150px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+  }
+
+  .hobby-group {
+    margin-top: 3rem;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+} */
+
+/* @media screen and (max-width: 800px) {
+  .chatAdd__container {
+    justify-content: center;
+    background-color: wheat;
+    align-items: center;
+    display: block;
+  }
+
+  .form__group {
+    align-items: center;
+    justify-content: center;
+    padding: 20 50px;
+  }
+
+  .input__design {
+    width: 150px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+  }
+
+  .hobby-group {
+    margin-top: 3rem;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+} */
