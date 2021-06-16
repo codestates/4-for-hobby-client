@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import MainpageItem from "./MainpageItem";
-
-
-import './MainPage.css';
+import Background from "./Background";
+import "./MainPage.css";
 
 const MainPage = ({ roomInfo, deleteData, enterRoomHandler }) => {
   useEffect(() => {
@@ -11,6 +10,7 @@ const MainPage = ({ roomInfo, deleteData, enterRoomHandler }) => {
 
   return (
     <Fragment>
+      <Background></Background>
       <div className="home">
         <div className="home__section">
           <MainpageItem
