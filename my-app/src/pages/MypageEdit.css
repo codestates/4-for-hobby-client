@@ -1,19 +1,10 @@
-/* input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
-  width: 27ch;
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  margin: 0.4rem;
-} */
-
 h1 {
   font-size: 30px;
   font-weight: bold;
-  margin: 10px 20px 20px 20px;
+  margin: 80px 20px 20px 20px;
 }
-*/ .container {
+
+.container {
   width: 100%;
   margin: 0 auto;
 }
@@ -30,6 +21,10 @@ h1 {
 }
 .container .col.three {
   width: 100%;
+}
+
+.pw-input {
+  margin: 8px;
 }
 
 /* @media screen and (min-width: 767px) {
@@ -56,7 +51,7 @@ GENERIC BUTTON STYLES
 .btn-edit {
   font-size: 20px;
   white-space: nowrap;
-  width: 20%;
+  width: 10%;
   margin: 20px 15px 15px 0px;
   padding: 0.5em 0em;
   font-family: Open Sans, Helvetica, Arial, sans-serif;

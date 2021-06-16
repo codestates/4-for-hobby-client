@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-
-import clsx from 'clsx';
 import './Mypage.css';
 import dotenv from "dotenv";
 
 
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -93,10 +90,10 @@ function Mypage() {
               variant="outlined"
             />
           </div>
-          <div>
+          <div className="pw-input">
             <FormControl
-              className={clsx(classes.margin, classes.textField)}
               variant="outlined"
+
             >
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
@@ -156,7 +153,6 @@ function Mypage() {
               <a href="#" className="btn-mypage btn-sea"> Edit </a>
             </div>
           </div>
-          {errorMessage ? <div>{errorMessage}</div> : ""}
         </form>
       </center>
     </div >

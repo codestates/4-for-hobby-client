@@ -2,8 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import "./Signup.css";
+
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import dotenv from "dotenv";
 dotenv.config();
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "35ch",
+      background: "white",
+    },
+  },
+}));
 
 function Signup() {
   const [email, setEmail] = useState(null);
@@ -13,6 +26,7 @@ function Signup() {
   const [errorMessage, setError] = useState(null);
 
   const history = useHistory();
+  const classes = useStyles();
 
   const signupController = async () => {
     if (!email || !password || !name || !mobile) {
@@ -35,39 +49,44 @@ function Signup() {
   return (
     <div>
       <center>
-        <form className="form-div" onSubmit={(e) => e.preventDefault()}>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <h1 className="title">Sign Up</h1>
-          <div className="email-index">
-            <input
-              className="input-make "
+          <div>
+            <TextField
               type="email"
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-            ></input>
+              label="Email"
+              variant="outlined"
+            />
           </div>
-          <div className="password-index">
-            <input
-              className="input-make "
+          <div>
+            <TextField
               type="password"
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            ></input>
+              label="Password"
+              variant="outlined"
+            />
           </div>
-          <div className="name-index">
-            <input
-              className="input-make "
+          <div>
+            <TextField
               type="text"
               onChange={(e) => setName(e.target.value)}
-              placeholder="Name"
-            ></input>
+              label="Name"
+              variant="outlined"
+            />
           </div>
-          <div className="phone-index">
-            <input
-              className="input-make "
+          <div>
+            <TextField
               type="tel"
               onChange={(e) => setMobile(e.target.value)}
-              placeholder="Phone Number"
-            ></input>
+              label="Phone Number"
+              variant="outlined"
+            />
           </div>
           <div
             onClick={() => {
