@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./Login.css";
-
+import img from "../moter.png";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -63,12 +63,12 @@ const Login = () => {
         <div class="ball">🎸</div>
       </div> */}
 
-
       <center>
-        <form className="form-div" onSubmit={e => e.preventDefault()}>
+        <form className="form-div" onSubmit={(e) => e.preventDefault()}>
           <h1 className="title"> Login </h1>
           <div>
             <input
+              className="input-adesign email-design"
               type="email"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -76,20 +76,20 @@ const Login = () => {
           </div>
           <div>
             <input
+              className="input-adesign password-design"
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div
-            className="col three"
-            onClick={onSubmit}
-          >
-            <a href="#" className="btn-login btn-sea"> Sign In </a>
+          <div className="col three" onClick={onSubmit}>
+            <a href="#" className="btn-login btn-sea">
+              {" "}
+              Sign In{" "}
+            </a>
           </div>
         </form>
       </center>
-
     </div>
   );
 };
