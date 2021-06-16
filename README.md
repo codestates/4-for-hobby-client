@@ -38,6 +38,7 @@
 
 ---
 
+![Stack_architecture](https://user-images.githubusercontent.com/76901060/122229140-7463bb80-cef3-11eb-9b1d-b3761a7b1930.png)
 - **Common** : JavaScript / Axios / Socket.io
 - **Front-end** : React (React-Hooks) / Css
 - **Back-end** : Node.js / sequelize / Express / Mysql / JWT
