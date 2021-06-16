@@ -18,7 +18,13 @@ const Background = () => {
         </label>
       </div>
       <div className="shot-content">
-        <img src={play} style={{ width: "700px" }} alt="이미지" />
+
+        <img
+          src={play}
+          style={{ width: "600px", height: "550px" }}
+          className="img-size"
+          alt="이미지"
+        />
       </div>
     </div>
   );

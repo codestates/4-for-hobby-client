@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   background-color: #efc07a;
+  height: 600px;
 }
 
 .text-content {
@@ -10,7 +11,7 @@
   max-width: 624px;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 .label-text {
@@ -25,4 +26,38 @@
   font-size: 25px;
   font-weight: 400;
   line-height: 30px;
+}
+
+.shot-content {
+  background-color: #efc07a;
+}
+
+@media all and (min-width: 480px) and (max-width: 950px) {
+  .container-large {
+    display: grid;
+    flex-direction: column;
+    column-gap: 20px;
+    height: 700px;
+  }
+  .label-text {
+    color: black;
+    padding: 25px;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 56px;
+    text-align: center;
+    margin-bottom: -3rem;
+  }
+
+  .label-text-info {
+    color: white;
+    padding-left: 60px;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+  }
 }
