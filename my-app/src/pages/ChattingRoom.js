@@ -86,14 +86,14 @@ function ChattingRoom({ roomId }) {
   return (
     <div className="container">
       <aside>
-        <header>
+        <header className="chat-user">
           대화상대
         </header>
         <ul className="user-list">
           <li>
             {users.map((user, index) => (
               <span key={index}>
-                <h1>{user.name}</h1>
+                <h1 className="chat-user user">{user.name}</h1>
               </span>
 
             ))}
@@ -103,7 +103,7 @@ function ChattingRoom({ roomId }) {
       <main>
         <header>
           <div>
-            <h2>채팅내용</h2>
+            <h1>채팅내용</h1>
           </div>
         </header>
         <ul className="chat">
