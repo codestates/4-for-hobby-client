@@ -76,8 +76,8 @@ li.homebuttonbeforelogin {
 li.loginbutton {
   background-color: #fe918d;
   border-color: #f5f5f5;
-  -webkit-box-shadow: 0 3px 0 #e0e0e0;
-  box-shadow: 0 3px 0 #e0e0e0;
+  -webkit-box-shadow: 0 3px 0 #ff9e80;
+  box-shadow: 0 3px 0 #ff9e80;
   width: 4rem;
   height: 27px;
   text-align: center;
@@ -88,7 +88,7 @@ li.loginbutton {
   padding-top: 5px;
 }
 li.loginbutton:hover {
-  background-color: #236896;
+  background-color: #ff9e80;
 }
 li.loginbutton:active {
   top: 3px;
@@ -102,8 +102,8 @@ li.signupbutton {
   background-color: #fe918d;
   /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
-  -webkit-box-shadow: 0 3px 0 #e0e0e0;
-  box-shadow: 0 3px 0 #e0e0e0;
+  -webkit-box-shadow: 0 3px 0 #ff9e80;
+  box-shadow: 0 3px 0 #ff9e80;
   width: 4rem;
   height: 27px;
   text-align: center;
@@ -114,7 +114,7 @@ li.signupbutton {
   padding-top: 5px;
 }
 li.signupbutton:hover {
-  background-color: #236896;
+  background-color: #ff9e80;
 }
 li.signupbutton:active {
   top: 3px;
@@ -140,19 +140,19 @@ li.roomcreatebutton {
   height: 27px;
   width: 4rem;
   text-align: center;
-  -webkit-box-shadow: 0 3px 0 #e0e0e0;
-  box-shadow: 0 3px 0 #e0e0e0;
+  -webkit-box-shadow: 0 3px 0 #ff9e80;
+  box-shadow: 0 3px 0 #ff9e80;
 }
 
 li.roomcreatebutton:hover {
-  background-color: #236896;
+  background-color: #ff9e80;
 }
 
 li.mypagebutton {
   background-color: #fe918d;
   /* border-color: #f5f5f5; */
-  -webkit-box-shadow: 0 3px 0 #e0e0e0;
-  box-shadow: 0 3px 0 #e0e0e0;
+  -webkit-box-shadow: 0 3px 0 #ff9e80;
+  box-shadow: 0 3px 0 #ff9e80;
   width: 4rem;
   height: 27px;
   text-align: center;
@@ -163,7 +163,7 @@ li.mypagebutton {
   padding-top: 5px;
 }
 li.mypagebutton:hover {
-  background-color: #236896;
+  background-color: #ff9e80;
 }
 li.mypagebutton:active {
   top: 3px;
@@ -176,8 +176,8 @@ li.logoutbutton {
   background-color: #fe918d;
   /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
-  -webkit-box-shadow: 0 3px 0 #e0e0e0;
-  box-shadow: 0 3px 0 #e0e0e0;
+  -webkit-box-shadow: 0 3px 0 #ff9e80;
+  box-shadow: 0 3px 0 #ff9e80;
   width: 4rem;
   height: 27px;
   text-align: center;
@@ -189,7 +189,7 @@ li.logoutbutton {
 }
 
 li.logoutbutton:hover {
-  background-color: #236896;
+  background-color: #ff9e80;
 }
 
 li.logoutbutton:active {

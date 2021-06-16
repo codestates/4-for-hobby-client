@@ -87,10 +87,10 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
     <div className="hobby__container">
       <div className="list">
         <div>
-          <h3 className="font">
+          <div className="font">
             {" "}
             <i className="fas fa-user"></i> {data.name}
-          </h3>
+          </div>
           <h4 className="room-icon-name">
             {" "}
             <i className="fas fa-comments"></i> {data.roomName}
@@ -132,10 +132,9 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
               likeBtnHandler()
             }}
           >
-            <i className="far fa-thumbs-up"></i>
+            <i className="far fa-thumbs-up"> {likeNum}</i>
           </button>
         }
-        <div>{likeNum}</div>
       </div>
     </div>
   );
