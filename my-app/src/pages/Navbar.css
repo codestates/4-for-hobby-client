@@ -5,6 +5,7 @@
   height: 60px;
   width: 100%;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 700px) {
@@ -42,7 +43,7 @@ div.logo {
   height: 40px;
   width: 130px;
   position: absolute;
-  left: 100px;
+  left: 0px;
   top: 8px;
   cursor: pointer;
 }
