@@ -1,8 +1,18 @@
 .home {
-  background: url(../bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 30px;
-  margin-top: 10rem;
-
+  /* padding: 30px; */
+  /* margin-top: 10rem; */
+  /* background: url(../play.png); */
 }
+
+/* .img__play {
+  background: url(../play.png);
+} */
+
+/* container-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  padding-top: 40px;
+  padding-bottom: 40px;
+} */

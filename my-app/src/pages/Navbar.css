@@ -34,7 +34,7 @@
   }
 }
 .navbuttoncolor:visited {
-  color: black;
+  color: #eeeeee;
 }
 
 div.logo {
@@ -44,7 +44,7 @@ div.logo {
   position: absolute;
   left: 100px;
   top: 8px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 ul {
@@ -73,7 +73,7 @@ li.homebuttonbeforelogin {
 
 /*SEA GREEN BUTTON STYLES*/
 li.loginbutton {
-  background-color: #d1d1d1;
+  background-color: #fe918d;
   border-color: #f5f5f5;
   -webkit-box-shadow: 0 3px 0 #e0e0e0;
   box-shadow: 0 3px 0 #e0e0e0;
@@ -87,7 +87,7 @@ li.loginbutton {
   padding-top: 5px;
 }
 li.loginbutton:hover {
-  background-color: #e0e0e0;
+  background-color: #236896;
 }
 li.loginbutton:active {
   top: 3px;
@@ -98,7 +98,8 @@ li.loginbutton:active {
 
 /*SEA GREEN BUTTON STYLES*/
 li.signupbutton {
-  background-color: #d1d1d1;
+  background-color: #fe918d;
+  /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
   -webkit-box-shadow: 0 3px 0 #e0e0e0;
   box-shadow: 0 3px 0 #e0e0e0;
@@ -112,7 +113,7 @@ li.signupbutton {
   padding-top: 5px;
 }
 li.signupbutton:hover {
-  background-color: #e0e0e0;
+  background-color: #236896;
 }
 li.signupbutton:active {
   top: 3px;
@@ -130,15 +131,25 @@ li.homebuttonafterlogin {
 }
 
 li.roomcreatebutton {
+  background-color: #fe918d;
   position: absolute;
   right: 19rem;
   top: 6px;
   padding-top: 6px;
+  height: 27px;
+  width: 4rem;
+  text-align: center;
+  -webkit-box-shadow: 0 3px 0 #e0e0e0;
+  box-shadow: 0 3px 0 #e0e0e0;
+}
+
+li.roomcreatebutton:hover {
+  background-color: #236896;
 }
 
 li.mypagebutton {
-  background-color: #d1d1d1;
-  border-color: #f5f5f5;
+  background-color: #fe918d;
+  /* border-color: #f5f5f5; */
   -webkit-box-shadow: 0 3px 0 #e0e0e0;
   box-shadow: 0 3px 0 #e0e0e0;
   width: 4rem;
@@ -151,7 +162,7 @@ li.mypagebutton {
   padding-top: 5px;
 }
 li.mypagebutton:hover {
-  background-color: #e0e0e0;
+  background-color: #236896;
 }
 li.mypagebutton:active {
   top: 3px;
@@ -161,7 +172,8 @@ li.mypagebutton:active {
 }
 
 li.logoutbutton {
-  background-color: #d1d1d1;
+  background-color: #fe918d;
+  /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
   -webkit-box-shadow: 0 3px 0 #e0e0e0;
   box-shadow: 0 3px 0 #e0e0e0;
@@ -176,7 +188,7 @@ li.logoutbutton {
 }
 
 li.logoutbutton:hover {
-  background-color: #e0e0e0;
+  background-color: #236896;
 }
 
 li.logoutbutton:active {

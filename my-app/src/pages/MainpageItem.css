@@ -1,8 +1,10 @@
 .search__container {
-  margin-top: 3rem;
+  margin-top: 8rem;
+  /* margin-top: -15rem; */
   margin-bottom: 10rem;
   height: 60px;
   width: 450px;
+  /* width: 250px; */
   border-radius: 50px;
   background-color: whitesmoke;
   padding: 5px;
@@ -11,12 +13,23 @@
 }
 
 .search__text {
-  border: none;
+  /* border: none;
   background: none;
   outline: none;
   float: left;
   font-size: 16px;
+  color: black; */
+
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 20px;
   color: black;
+  align-items: center;
+  text-align: left;
+  line-height: 2.5;
+  padding-left: 13px;
 }
 
 /* .search__btn {
