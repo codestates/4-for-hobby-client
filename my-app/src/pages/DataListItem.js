@@ -6,28 +6,81 @@ dotenv.config();
 
 const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
   const accessToken = localStorage.getItem("token");
-  const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const [thumb, setThumb] = useState(false);
+  const [likeNum, setLikeNum] = useState(0);
 
   const deleteBtnHandler = async () => {
-    await axios
-      .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-      .then((res) => {
-        const { name } = res.data.data.userInfo;
-        setName(name);
-        if (name === data.name) setIsValid(true);
-      })
-      .catch((err) => console.log(err));
+    try {
+      await axios
+        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        })
+        .then((res) => {
+          const { name } = res.data.data.userInfo;
+          if (name === data.name) setIsValid(true);
+        })
+    } catch (error) {
+
+    }
+
   };
+
+  const likeBtnHandler = async () => {
+    setThumb(!thumb);
+    if (thumb) {
+      setLikeNum(likeNum - 1)
+    } else {
+      setLikeNum(likeNum + 1)
+    }
+    // await axios
+    //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+    //     headers: {
+    //       Authorization: `Bearer ${accessToken}`,
+    //       "Content-Type": "application/json",
+    //     },
+    //     withCredentials: true,
+    //   })
+    //   .then(async (res) => {
+    //     const { id } = res.data.data.userInfo;
+
+    //     await axios.put(`${process.env.REACT_APP_API_URL}/putlike`, {
+    //       id, roomId: data.id
+    //     }, {
+    //       headers: {
+    //         Authorization: `Bearer ${accessToken}`,
+    //         "Content-Type": "application/json",
+    //       },
+    //       withCredentials: true,
+    //     })
+    //       .then((res) => {
+    //         console.log(res.data.data)
+    //         setLikeNum(res.data.data)
+    //       })
+
+    //   })
+
+
+  }
+
+  const thumbNumHandler = async () => {
+    await axios.get(`${process.env.REACT_APP_API_URL}/getlike`)
+      .then((res) => {
+        res.data.data.map((e) => {
+          if (e.roomId === data.id) {
+            setLikeNum(e.likeNum);
+          }
+        })
+      })
+  }
 
   useEffect(() => {
     deleteBtnHandler();
+    thumbNumHandler();
   }, []);
 
   return (
@@ -36,11 +89,11 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
         <div>
           <h3 className="font">
             {" "}
-            <i class="fas fa-user"></i> {data.name}
+            <i className="fas fa-user"></i> {data.name}
           </h3>
           <h4 className="room-icon-name">
             {" "}
-            <i class="fas fa-comments"></i> {data.roomName}
+            <i className="fas fa-comments"></i> {data.roomName}
           </h4>
           <p> 취미: {data.hobby}</p>
         </div>
@@ -52,7 +105,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
               window.location.replace("/");
             }}
           >
-            <i class="fas fa-trash-alt"></i> 삭제
+            <i className="fas fa-trash-alt"></i> 삭제
           </button>
         ) : (
           ""
@@ -63,8 +116,26 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
             enterRoomHandler(data.id);
           }}
         >
-          <i class="fas fa-sign-in-alt"></i> 입장
+          <i className="fas fa-sign-in-alt"></i> 입장
         </button>
+        {thumb ? <button
+          className="btn-like"
+          onClick={() => {
+            likeBtnHandler()
+          }}
+        >
+          <i className="fas fa-thumbs-up"></i>
+        </button>
+          : <button
+            className="btn-like"
+            onClick={() => {
+              likeBtnHandler()
+            }}
+          >
+            <i className="far fa-thumbs-up"></i>
+          </button>
+        }
+        <div>{likeNum}</div>
       </div>
     </div>
   );
