@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
       background: "white"
     },
     textField: {
+      margin: theme.spacing(1),
       width: '50ch',
-      background: "black"
+      background: "white"
     },
   },
 }));
@@ -104,7 +105,7 @@ function MypageEdit() {
               variant="outlined"
             />
           </div>
-          <div>
+          <div className="pw-input">
             <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
               <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
               <OutlinedInput

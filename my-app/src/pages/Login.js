@@ -3,16 +3,28 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./Login.css";
 
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import dotenv from "dotenv";
 dotenv.config();
 
 axios.defaults.withCredentials = true;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "35ch",
+      background: "white"
+    },
+  },
+}));
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
   const [check, setCheck] = useState(false);
+  const classes = useStyles();
 
   const boolean = () => {
     setCheck((prevCheck) => !prevCheck);
@@ -65,20 +77,22 @@ const Login = () => {
 
 
       <center>
-        <form className="form-div" onSubmit={e => e.preventDefault()}>
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>
           <h1 className="title"> Login </h1>
           <div>
-            <input
+            <TextField
               type="email"
-              placeholder="Email"
+              label="Email"
               onChange={(e) => setEmail(e.target.value)}
+              variant="outlined"
             />
           </div>
           <div>
-            <input
+            <TextField
               type="password"
-              placeholder="Password"
+              label="Password"
               onChange={(e) => setPassword(e.target.value)}
+              variant="outlined"
             />
           </div>
           <div
