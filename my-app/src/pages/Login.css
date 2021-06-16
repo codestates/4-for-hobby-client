@@ -1,5 +1,9 @@
 body{font-family:Open Sans; color:#555555;}
- h1{font-size:30px; font-weight:bold; margin:10px 20px 20px 20px;} */
+ h1{
+   font-size:30px; 
+   font-weight:bold; 
+   margin:10px 20px 20px 20px;
+  } 
 
 .container { width: 100%; margin: 0 auto; }
 .container .row { float: left; clear: both; width: 100%; }
@@ -22,7 +26,7 @@ a{text-decoration:none;}
 /********************
 GENERIC BUTTON STYLES
 ********************/
-.btn-login {font-size: 20px; white-space:nowrap; width:25%; margin: 20px 15px 15px 0px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+.btn-login {font-size: 20px; white-space:nowrap; width:15%; margin: 20px 15px 15px 0px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
 
 /*SEA GREEN BUTTON STYLES*/		
 .btn-login.btn-sea{background-color: #f5f5f5; border-color: #f5f5f5; -webkit-box-shadow: 0 3px 0 #e0e0e0; box-shadow: 0 3px 0 #e0e0e0;}
@@ -48,6 +52,9 @@ GENERIC BUTTON STYLES
   width: 100px;
   height: 50px;
   margin: 0 auto;
+}
+.form-container{
+  margin: 0px 200px;
 }
 /* 구체 왔다 갔다. (+ 색깔 변경) */
 /* .ball {

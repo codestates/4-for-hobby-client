@@ -22,7 +22,7 @@ a{text-decoration:none;}
 /********************
 GENERIC BUTTON STYLES
 ********************/
-.btn {font-size: 20px; white-space:nowrap; width:40%; margin-top: 20px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+.btn {font-size: 20px; white-space:nowrap; width:15%; margin-top: 20px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
 
 /*SEA GREEN BUTTON STYLES*/		
 .btn.btn-sea{background-color: #f5f5f5; border-color: #f5f5f5; -webkit-box-shadow: 0 3px 0 #e0e0e0; box-shadow: 0 3px 0 #e0e0e0;}

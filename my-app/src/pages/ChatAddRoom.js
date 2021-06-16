@@ -1,27 +1,30 @@
 import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import { PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
 import "./ChatAddRoom.css";
-import { Link, useHistory } from "react-router-dom";
+
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+
 import dotenv from "dotenv";
 dotenv.config();
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "35ch",
+      background: "white"
+    },
+  },
+}));
 
 const ChatAddRoom = () => {
   const [roomName, setRoomName] = useState("");
   const [hobby, setHobby] = useState("");
-
-  const [image, setImage] = useState(null);
   const [Images, setImages] = useState([]);
+  const classes = useStyles();
 
-  let history = useHistory();
-
-  const handleChange = (event) => {
-    setImages(URL.createObjectURL(event.target.files[0]));
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async () => {
     if (!hobby || !roomName) {
       alert("Please add a task");
     }
@@ -43,102 +46,40 @@ const ChatAddRoom = () => {
     setRoomName("");
   };
 
-  const dropHandle = async (files) => {
-    let formData = new FormData();
-
-    const config = {
-      header: { "content-type": "multipart/form-data" },
-    };
-    formData.append("file", files[0]);
-
-    await axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/api/product/image`,
-        formData,
-        config
-      )
-      .then((response) => {
-        if (response.data.success) {
-          console.log(response.data);
-          setImages([...Images, response.data.filePath]);
-        } else {
-          alert("파일을 저장하는데 실패했습니다.");
-          console.log(response.data.err);
-        }
-      });
-  };
-
   return (
-    <div className="chatAdd__container">
+    <div className="form-container">
       <center>
-        <form className="form__group" onSubmit={onSubmit}>
-          <h2 className="text">채팅방 정보를 입력해주세요!</h2>
-          <div
-            className="drop__zone"
-            style={{ width: 100, height: 100, border: "1px solid red" }}
-          >
-            <Dropzone onDrop={dropHandle} className="position">
-              {({ getRootProps, getInputProps }) => (
-                <div
-                  style={{
-                    width: 100,
-                    height: 100,
-                    border: "1px solid red",
-                  }}
-                  {...getRootProps()}
-                >
-                  <input {...getInputProps()} />
-                  <PlusOutlined
-                    style={{
-                      fontSize: "3rem",
-
-                      justifyContent: "center",
-                      marginTop: "1rem",
-                    }}
-                  />
-                </div>
-              )}
-            </Dropzone>
-            <div>
-              {Images.map((image, index) => (
-                <div key={index}>
-                  <img src={`${process.env.REACT_APP_API_URL}/${image}`} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="hobby-group">
-            <label className="name__text">Hobby </label>
-            <input
-              className="input__design"
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>
+          <h1 className="title">Add Room</h1>
+          <div>
+            <TextField
+              label="Text"
               type="text"
               value={hobby}
               name="hobby"
               onChange={(e) => setHobby(e.target.value)}
+              variant="outlined"
             />
           </div>
-          <div className="roomname-group">
-            <label className="room__text">RoomName </label>
-            <input
-              className="input__design"
+          <div >
+            <TextField
+              label="RoomName"
               type="text"
               value={roomName}
               name="roomname"
               onChange={(e) => setRoomName(e.target.value)}
+              variant="outlined"
             />
           </div>
-          <button
-            className="btn__create"
-            type="submit"
-
-
+          <div
+            className="col three"
             onClick={() => {
               onSubmit();
               window.location.replace("/")
             }}
           >
-            Create
-          </button>
+            <a href="#" className="btn-login btn-sea"> Sign In </a>
+          </div>
 
         </form>
       </center>
