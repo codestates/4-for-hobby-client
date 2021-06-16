@@ -75,8 +75,8 @@
 
 ### **Repository**
 
-- [Client repository](https://github.com/codestates/4-for-hobby-client)
-- [Server repository](https://github.com/codestates/4-for-hobby-server)
+- [Client repository](https://github.com/codestates/4-for-hobby-client/tree/dev)
+- [Server repository](https://github.com/codestates/4-for-hobby-server/tree/dev)
 
 ### **OPTIMIZED CREW (OC)**
 
