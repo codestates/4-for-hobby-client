@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import "./Signup.css";
+// import paper from "../paper.jpg";
 
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
@@ -47,68 +48,73 @@ function Signup() {
   };
 
   return (
-    <div>
-      <center>
-        <form
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <h1 className="title">Sign Up</h1>
-          <div>
-            <TextField
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              label="Email"
-              variant="outlined"
-            />
-          </div>
-          <div>
-            <TextField
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              label="Password"
-              variant="outlined"
-            />
-          </div>
-          <div>
-            <TextField
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              label="Name"
-              variant="outlined"
-            />
-          </div>
-          <div>
-            <TextField
-              type="tel"
-              onChange={(e) => setMobile(e.target.value)}
-              label="Phone Number"
-              variant="outlined"
-            />
-          </div>
-          <div
-            onClick={() => {
-              signupController();
-              setTimeout(history.push("/login"), 5000);
-            }}
-          ></div>
-          <div
-            className="col three"
-            onClick={() => {
-              signupController();
-              setTimeout(history.push("/login"), 5000);
-            }}
+    <div className="background__img">
+      {/* <img src={paper} alt="이미지" /> */}
+      {/* <div className="background__size"></div> */}
+      <div className="sign__container">
+        <center>
+          <form
+            className={classes.root}
+            noValidate
+            autoComplete="off"
+            onSubmit={(e) => e.preventDefault()}
           >
-            <a href="#" className="btn btn-sea">
-              {" "}
-              Register now
-            </a>
-          </div>
-          {errorMessage ? <div>{errorMessage}</div> : ""}
-        </form>
-      </center>
+            <h3 className="title">Sign Up</h3>
+            <div>
+              <TextField
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                label="Email"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                label="Password"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                label="Name"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                type="tel"
+                onChange={(e) => setMobile(e.target.value)}
+                label="Phone Number"
+                variant="outlined"
+              />
+            </div>
+            <div
+              onClick={() => {
+                signupController();
+                setTimeout(history.push("/login"), 5000);
+              }}
+            ></div>
+            <div
+              className="col three"
+              onClick={() => {
+                signupController();
+                setTimeout(history.push("/login"), 5000);
+              }}
+            >
+              <a href="#" className="btn btn-sea">
+                {" "}
+                Register now
+              </a>
+            </div>
+            {errorMessage ? <div>{errorMessage}</div> : ""}
+          </form>
+        </center>
+      </div>
+      <div className="background__size"></div>
     </div>
   );
 }
