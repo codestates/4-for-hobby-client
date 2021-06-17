@@ -1,12 +1,8 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import MainpageItem from "./MainpageItem";
 import Background from "./Background";
-import "./MainPage.css";
 
 const MainPage = ({ roomInfo, deleteData, enterRoomHandler }) => {
-  useEffect(() => {
-    localStorage.getItem("token");
-  });
 
   return (
     <Fragment>

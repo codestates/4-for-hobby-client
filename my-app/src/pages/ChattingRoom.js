@@ -49,8 +49,7 @@ function ChattingRoom({ roomId }) {
       })
   }
 
-  const sendMessageHandler = (e) => {
-    //e.preventDefault();
+  const sendMessageHandler = () => {
     socket.emit('send', {
       name: name,
       message: chatting,
@@ -61,7 +60,6 @@ function ChattingRoom({ roomId }) {
 
   const getMessageHandler = () => {
     socket.on('sendAll', (data) => {
-      // console.log(data)
       setLogs([...logs, data]);
     })
   }

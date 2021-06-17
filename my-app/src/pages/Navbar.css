@@ -74,7 +74,6 @@ li.homebuttonbeforelogin {
   top: 6px;
 }
 
-/*SEA GREEN BUTTON STYLES*/
 li.loginbutton {
   background-color: #fe918d;
   border-color: #f5f5f5;
@@ -99,10 +98,8 @@ li.loginbutton:active {
   box-shadow: none;
 }
 
-/*SEA GREEN BUTTON STYLES*/
 li.signupbutton {
   background-color: #fe918d;
-  /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
   -webkit-box-shadow: 0 3px 0 #ff9e80;
   box-shadow: 0 3px 0 #ff9e80;
@@ -152,7 +149,6 @@ li.roomcreatebutton:hover {
 
 li.mypagebutton {
   background-color: #fe918d;
-  /* border-color: #f5f5f5; */
   -webkit-box-shadow: 0 3px 0 #ff9e80;
   box-shadow: 0 3px 0 #ff9e80;
   width: 4rem;
@@ -176,7 +172,6 @@ li.mypagebutton:active {
 
 li.logoutbutton {
   background-color: #fe918d;
-  /* background-color: #d1d1d1; */
   border-color: #f5f5f5;
   -webkit-box-shadow: 0 3px 0 #ff9e80;
   box-shadow: 0 3px 0 #ff9e80;

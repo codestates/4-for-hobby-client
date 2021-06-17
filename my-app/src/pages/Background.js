@@ -1,6 +1,5 @@
 import React from "react";
 import "./Background.css";
-// import play from "../playcolor.png";
 import play from "../play.png";
 
 const Background = () => {

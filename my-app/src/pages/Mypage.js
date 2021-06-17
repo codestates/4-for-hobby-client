@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Mypage() {
-  const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState({
     value: "",
@@ -161,4 +160,4 @@ function Mypage() {
   );
 }
 
-export default withRouter(Mypage);
+export default Mypage;

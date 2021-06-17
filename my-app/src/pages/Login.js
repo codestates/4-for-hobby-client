@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import "./Login.css";
 
 import TextField from "@material-ui/core/TextField";
@@ -8,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import dotenv from "dotenv";
 dotenv.config();
 
-axios.defaults.withCredentials = true;
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -38,20 +36,22 @@ const Login = () => {
           password,
         })
         .then((res) => {
-          setIsLogin(true);
           const { accessToken } = res.data.data;
           localStorage.setItem("token", accessToken);
         });
+      setIsLogin(true);
     } catch (error) {
       console.error("에러입니다");
     }
   };
 
-  const authToken = localStorage.getItem("token");
 
-  if (isLogin || authToken) {
-    window.location.replace("/");
-  }
+  useEffect(() => {
+    const authToken = localStorage.getItem("token");
+    if (isLogin || authToken) {
+      window.location.replace("/");
+    }
+  }, [isLogin])
 
   return (
     <div className="form__container" className="background__img">
@@ -69,17 +69,9 @@ const Login = () => {
         {check ? "🎬" : "📚"}
       </button>
 
-      {/* <div>
-        <div class="ball">🚲</div>
-        <div class="ball">⚽️</div>
-        <div class="ball">🏀</div>
-        <div class="ball">🎸</div>
-      </div> */}
-
       <center>
         <form
           className={classes.root}
-          noValidate
           autoComplete="off"
           onSubmit={(e) => e.preventDefault()}
         >

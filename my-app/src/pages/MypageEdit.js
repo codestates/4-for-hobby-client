@@ -43,8 +43,6 @@ function MypageEdit() {
   });
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
-  const [errorMessage, setError] = useState("");
-
   const classes = useStyles();
   const history = useHistory();
 
@@ -68,7 +66,6 @@ function MypageEdit() {
   }
 
   const updateHandler = async () => {
-    //console.log(password.value, mobile)
     await axios.put(`${process.env.REACT_APP_API_URL}/mypageupdateuser`,
       { email: email, password: password.value, mobile: mobile })
   }
@@ -160,16 +157,11 @@ function MypageEdit() {
               className="col three"
               onClick={() => {
                 updateHandler()
-                setTimeout(history.push('/mypage'), 1000)
               }}
             >
-              <a href="#" className="btn-sea btn-edit"> Save </a>
+              <a href="/mypage" className="btn-sea btn-edit"> Save </a>
             </span>
           </div>
-          {errorMessage ?
-            <div>
-              {errorMessage}
-            </div> : ''}
         </form>
       </center>
       <div className="background__down"></div>
