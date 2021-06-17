@@ -1,11 +1,29 @@
-h1{font-size:30px; font-weight:bold; margin:80px 20px 20px 20px;}
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 80px 20px 20px 20px;
+}
 
-.container { width: 100%; margin: 0 auto; }
-.container .row { float: left; clear: both; width: 100%; }
-.container .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
-.container .col.three { width: 100%; }
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.container .row {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+.container .col {
+  float: left;
+  margin: 0 0 1.2em;
+  padding-right: 1.2em;
+  padding-left: 1.2em;
+}
+.container .col.three {
+  width: 100%;
+}
 
-.pw-input{
+.pw-input {
   margin: 8px;
 }
 
@@ -18,15 +36,50 @@ h1{font-size:30px; font-weight:bold; margin:80px 20px 20px 20px;}
 
 /*All the button styles*/
 
-* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
-a{text-decoration:none;}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
 
 /********************
 GENERIC BUTTON STYLES
 ********************/
-.btn-edit {font-size: 20px; white-space:nowrap; width:10%; margin: 20px 15px 15px 0px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+.btn-edit {
+  font-size: 20px;
+  white-space: nowrap;
+  width: 10%;
+  margin: 20px 15px 15px 0px;
+  padding: 0.5em 0em;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  line-height: 18px;
+  display: inline-block;
+  zoom: 1;
+  color: black;
+  text-align: center;
+  position: relative;
+  -webkit-transition: border 0.25s linear, color 0.25s linear,
+    background-color 0.25s linear;
+  transition: border 0.25s linear, color 0.25s linear,
+    background-color 0.25s linear;
+}
 
-/*SEA GREEN BUTTON STYLES*/		
-.btn-edit.btn-sea{background-color: #f5f5f5; border-color: #f5f5f5; -webkit-box-shadow: 0 3px 0 #e0e0e0; box-shadow: 0 3px 0 #e0e0e0;}
-.btn-edit.btn-sea:hover{background-color:#e0e0e0;}
-.btn-edit.btn-sea:active{ top: 3px; outline: none; -webkit-box-shadow: none; box-shadow: none;}
+/*SEA GREEN BUTTON STYLES*/
+.btn-edit.btn-sea {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  -webkit-box-shadow: 0 3px 0 #e0e0e0;
+  box-shadow: 0 3px 0 #e0e0e0;
+}
+.btn-edit.btn-sea:hover {
+  background-color: #e0e0e0;
+}
+.btn-edit.btn-sea:active {
+  top: 3px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

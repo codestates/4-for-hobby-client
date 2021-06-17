@@ -1,15 +1,57 @@
+<<<<<<< HEAD
+.input-adesign {
+  border: none;
+  border-radius: 55px;
+  outline: none;
+  width: 100%;
+  background-color: wheat;
+  padding: 20px;
+  font-size: 15px;
+  margin-bottom: 3rem;
+}
+.email-design {
+  margin-bottom: 5rem;
+}
+=======
 body{font-family:Open Sans; color:#555555;}
  h1{
    font-size:30px; 
    font-weight:bold; 
    margin:10px 20px 20px 20px;
   } 
+>>>>>>> 73bd22b0def78eeedf7b2a957f70ee506d36d1b9
 
-.container { width: 100%; margin: 0 auto; }
-.container .row { float: left; clear: both; width: 100%; }
-.container .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
-.container .col.three { width: 100%; }
+body {
+  font-family: Open Sans;
+  color: #555555;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 20px 20px 20px;
+}
+
+*/ .container {
+  width: 100%;
+  margin: 0 auto;
+}
+.container .row {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+.container .col {
+  float: left;
+  margin: 0 0 1.2em;
+  padding-right: 1.2em;
+  padding-left: 1.2em;
+}
+.container .col.three {
+  width: 100%;
+}
 
 /* @media screen and (min-width: 767px) {
   .container{width: 100%; max-width: 1080px; margin: 0 auto;}
@@ -20,28 +62,105 @@ body{font-family:Open Sans; color:#555555;}
 
 /*All the button styles*/
 
-* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
-a{text-decoration:none;}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
 
 /********************
 GENERIC BUTTON STYLES
 ********************/
+<<<<<<< HEAD
+.btn-login {
+  border-radius: 50px;
+  font-size: 20px;
+  white-space: nowrap;
+  width: 100%;
+  margin: 20px 15px 15px 0px;
+  padding: 0.5em 0em;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  line-height: 18px;
+  display: inline-block;
+  zoom: 1;
+  color: black;
+  text-align: center;
+  position: relative;
+  -webkit-transition: border 0.25s linear, color 0.25s linear,
+    background-color 0.25s linear;
+  transition: border 0.25s linear, color 0.25s linear,
+    background-color 0.25s linear;
+}
+=======
 .btn-login {font-size: 20px; white-space:nowrap; width:15%; margin: 20px 15px 15px 0px; padding:.5em 0em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: black; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+>>>>>>> 73bd22b0def78eeedf7b2a957f70ee506d36d1b9
 
-/*SEA GREEN BUTTON STYLES*/		
-.btn-login.btn-sea{background-color: #f5f5f5; border-color: #f5f5f5; -webkit-box-shadow: 0 3px 0 #e0e0e0; box-shadow: 0 3px 0 #e0e0e0;}
-.btn-login.btn-sea:hover{background-color:#e0e0e0;}
-.btn-login.btn-sea:active{ top: 3px; outline: none; -webkit-box-shadow: none; box-shadow: none;}
+/*SEA GREEN BUTTON STYLES*/
+.btn-login.btn-sea {
+  margin-top: 3rem;
+  background-color: paleturquoise;
+  border-color: #f5f5f5;
+  -webkit-box-shadow: 0 3px 0 #e0e0e0;
+  box-shadow: 0 3px 0 #e0e0e0;
+  border: none;
+  display: block;
+  /* width: 200px; */
+  padding: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  color: white;
+  width: 30%;
+  height: 55px;
+  font-size: 15px;
+  border-radius: 25px;
 
+  cursor: pointer;
+  width: 100%;
+}
+.btn-login.btn-sea:hover {
+  background-color: paleturquoise;
+}
+.btn-login.btn-sea:active {
+  top: 3px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* .btn__create {
+  margin-top: 2rem;
+  border: none;
+  display: block;
+   width: 200px; 
+  padding: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  color: white;
+  width: 30%;
+  height: 55px;
+  font-size: 15px;
+  border-radius: 25px;
+
+cursor:pointer;
+  width: 100%;
+ } 
+  */
 .form-div {
-  padding:30px;
-  width: 450px;
+  padding: 30px;
+  /* width: 450px;
   left: 50%;
   position: absolute;
-  margin-top:0px;
-  margin-left: -220px;
+  margin-top: 0px;
+  margin-left: -220px; */
 }
 
+.back {
+  /* background: url(../play.png); */
+  /* background: url(../moter.png); */
+  /* background: url(../moter.png); */
+}
 /* body {
   margin: 0;
   padding: 0;
