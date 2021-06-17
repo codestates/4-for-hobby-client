@@ -54,17 +54,18 @@ const Login = () => {
   }
 
   return (
-    <div className="form__container">
-      <button class="circling1" onClick={boolean}>
+    <div className="form__container" className="background__img">
+      <div className="background__up"></div>
+      <button className="circling1" onClick={boolean}>
         {check ? "🏀" : "⚽️"}
       </button>
-      <button class="circling2" onClick={boolean}>
+      <button className="circling2" onClick={boolean}>
         {check ? "🎹" : "🎸"}
       </button>
-      <button class="circling3" onClick={boolean}>
+      <button className="circling3" onClick={boolean}>
         {check ? "🛹" : "🚲"}
       </button>
-      <button class="circling4" onClick={boolean}>
+      <button className="circling4" onClick={boolean}>
         {check ? "🎬" : "📚"}
       </button>
 
@@ -107,6 +108,7 @@ const Login = () => {
           </div>
         </form>
       </center>
+      <div className="background__down"></div>
     </div>
   );
 };

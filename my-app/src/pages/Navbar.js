@@ -16,14 +16,20 @@ const Navbar = ({ isEnterHandler, isInAddRoomHandler, inAddRoom }) => {
         window.location.replace("/");
       }}></div>
       <li className="loginbutton">
-        <Link className="navbuttoncolor" to="/login">
-          Sign in
-        </Link>
+        <div className="navbuttoncolor" onClick={() => {
+          isEnterHandler();
+          window.location.replace("/login");
+        }}>
+          Sign In
+        </div>
       </li>
       <li className="signupbutton">
-        <Link className="navbuttoncolor" to="/signup">
-          Sign up
-        </Link>
+        <div className="navbuttoncolor" onClick={() => {
+          isEnterHandler();
+          window.location.replace("/signup");
+        }}>
+          Sign Up
+        </div>
       </li>
     </ul>
   );

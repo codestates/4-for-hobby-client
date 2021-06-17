@@ -11,23 +11,18 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
   const [likeNum, setLikeNum] = useState(0);
 
   const deleteBtnHandler = async () => {
-    try {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          const { name } = res.data.data.userInfo;
-          if (name === data.name) setIsValid(true);
-        })
-    } catch (error) {
-
-    }
-
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        const { name } = res.data.data.userInfo;
+        if (name === data.name) setIsValid(true);
+      })
   };
 
   const likeBtnHandler = async () => {
@@ -37,34 +32,6 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
     } else {
       setLikeNum(likeNum + 1)
     }
-    // await axios
-    //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-    //     headers: {
-    //       Authorization: `Bearer ${accessToken}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //     withCredentials: true,
-    //   })
-    //   .then(async (res) => {
-    //     const { id } = res.data.data.userInfo;
-
-    //     await axios.put(`${process.env.REACT_APP_API_URL}/putlike`, {
-    //       id, roomId: data.id
-    //     }, {
-    //       headers: {
-    //         Authorization: `Bearer ${accessToken}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //       withCredentials: true,
-    //     })
-    //       .then((res) => {
-    //         console.log(res.data.data)
-    //         setLikeNum(res.data.data)
-    //       })
-
-    //   })
-
-
   }
 
   const thumbNumHandler = async () => {
@@ -102,7 +69,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
             className="btn-delete"
             onClick={() => {
               deleteData(data.roomName);
-              window.location.replace("/");
+              window.location.replace("/")
             }}
           >
             <i className="fas fa-trash-alt"></i> 삭제
@@ -124,7 +91,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
             likeBtnHandler()
           }}
         >
-          <i className="fas fa-thumbs-up"></i>
+          <i className="fas fa-thumbs-up">{" "}{likeNum}</i>
         </button>
           : <button
             className="btn-like"
@@ -132,7 +99,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
               likeBtnHandler()
             }}
           >
-            <i className="far fa-thumbs-up"> {likeNum}</i>
+            <i className="far fa-thumbs-up">{" "}{likeNum}</i>
           </button>
         }
       </div>

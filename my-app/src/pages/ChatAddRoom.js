@@ -4,6 +4,7 @@ import "./ChatAddRoom.css";
 
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -23,6 +24,7 @@ const ChatAddRoom = () => {
   const [hobby, setHobby] = useState("");
   const [Images, setImages] = useState([]);
   const classes = useStyles();
+  const history = useHistory();
 
   const onSubmit = async () => {
     if (!hobby || !roomName) {
@@ -31,7 +33,7 @@ const ChatAddRoom = () => {
     const accessToken = localStorage.getItem("token");
     //images: Images,
     await axios.post(
-      "http://localhost:80/addroom",
+      `${process.env.REACT_APP_API_URL}/addroom`,
       { hobby: hobby, roomName: roomName },
       {
         headers: {
@@ -47,13 +49,14 @@ const ChatAddRoom = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" className="background__img">
+      <div className="background__up"></div>
       <center>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>
           <h1 className="title">Add Room</h1>
           <div>
             <TextField
-              label="Text"
+              label="Hobby"
               type="text"
               value={hobby}
               name="hobby"
@@ -75,14 +78,15 @@ const ChatAddRoom = () => {
             className="col three"
             onClick={() => {
               onSubmit();
-              window.location.replace("/")
+              history.push('/')
             }}
           >
-            <a href="#" className="btn-login btn-sea"> Sign In </a>
+            <a href="" className="btn-login btn-sea"> Add </a>
           </div>
 
         </form>
       </center>
+      <div className="background__down"></div>
     </div>
   );
 };
