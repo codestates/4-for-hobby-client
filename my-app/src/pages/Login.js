@@ -48,7 +48,7 @@ const Login = () => {
 
   useEffect(() => {
     const authToken = localStorage.getItem("token");
-    if (isLogin || authToken) {
+    if (isLogin && authToken) {
       window.location.replace("/");
     }
   }, [isLogin])
