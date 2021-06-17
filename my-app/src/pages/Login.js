@@ -54,7 +54,8 @@ const Login = () => {
   }
 
   return (
-    <div className="form__container">
+    <div className="form__container" className="background__img">
+      <div className="background__up"></div>
       <button class="circling1" onClick={boolean}>
         {check ? "🏀" : "⚽️"}
       </button>
@@ -107,6 +108,7 @@ const Login = () => {
           </div>
         </form>
       </center>
+      <div className="background__down"></div>
     </div>
   );
 };

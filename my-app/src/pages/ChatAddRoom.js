@@ -47,13 +47,14 @@ const ChatAddRoom = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" className="background__img">
+      <div className="background__up"></div>
       <center>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>
           <h1 className="title">Add Room</h1>
           <div>
             <TextField
-              label="Text"
+              label="Hobby"
               type="text"
               value={hobby}
               name="hobby"
@@ -78,11 +79,12 @@ const ChatAddRoom = () => {
               window.location.replace("/")
             }}
           >
-            <a href="#" className="btn-login btn-sea"> Sign In </a>
+            <a href="" className="btn-login btn-sea"> Sign In </a>
           </div>
 
         </form>
       </center>
+      <div className="background__down"></div>
     </div>
   );
 };

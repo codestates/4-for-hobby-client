@@ -37,34 +37,6 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
     } else {
       setLikeNum(likeNum + 1)
     }
-    // await axios
-    //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-    //     headers: {
-    //       Authorization: `Bearer ${accessToken}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //     withCredentials: true,
-    //   })
-    //   .then(async (res) => {
-    //     const { id } = res.data.data.userInfo;
-
-    //     await axios.put(`${process.env.REACT_APP_API_URL}/putlike`, {
-    //       id, roomId: data.id
-    //     }, {
-    //       headers: {
-    //         Authorization: `Bearer ${accessToken}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //       withCredentials: true,
-    //     })
-    //       .then((res) => {
-    //         console.log(res.data.data)
-    //         setLikeNum(res.data.data)
-    //       })
-
-    //   })
-
-
   }
 
   const thumbNumHandler = async () => {
@@ -124,7 +96,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
             likeBtnHandler()
           }}
         >
-          <i className="fas fa-thumbs-up"></i>
+          <i className="fas fa-thumbs-up">{" "}{likeNum}</i>
         </button>
           : <button
             className="btn-like"
@@ -132,7 +104,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
               likeBtnHandler()
             }}
           >
-            <i className="far fa-thumbs-up"> {likeNum}</i>
+            <i className="far fa-thumbs-up">{" "}{likeNum}</i>
           </button>
         }
       </div>

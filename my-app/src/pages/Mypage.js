@@ -75,7 +75,8 @@ function Mypage() {
   }, []);
 
   return (
-    <div>
+    <div className="background__img">
+      <div className="background__up"></div>
       <center>
         <h1 className="title"> MyPage </h1>
         <form className={classes.root} noValidate autoComplete="off">
@@ -155,6 +156,7 @@ function Mypage() {
           </div>
         </form>
       </center>
+      <div className="background__down"></div>
     </div >
   );
 }

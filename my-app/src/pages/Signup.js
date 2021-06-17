@@ -49,8 +49,7 @@ function Signup() {
 
   return (
     <div className="background__img">
-      {/* <img src={paper} alt="이미지" /> */}
-      {/* <div className="background__size"></div> */}
+      <div className="background__up"></div>
       <div className="sign__container">
         <center>
           <form
@@ -59,7 +58,7 @@ function Signup() {
             autoComplete="off"
             onSubmit={(e) => e.preventDefault()}
           >
-            <h3 className="title">Sign Up</h3>
+            <h1 className="title">Sign Up</h1>
             <div>
               <TextField
                 type="email"
@@ -105,16 +104,16 @@ function Signup() {
                 setTimeout(history.push("/login"), 5000);
               }}
             >
-              <a href="#" className="btn btn-sea">
+              <a href="" className="btn-signup btn-sea">
                 {" "}
-                Register now
+                Register Now
               </a>
             </div>
             {errorMessage ? <div>{errorMessage}</div> : ""}
           </form>
         </center>
       </div>
-      <div className="background__size"></div>
+      <div className="background__down"></div>
     </div>
   );
 }
