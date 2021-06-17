@@ -33,7 +33,7 @@ const ChatAddRoom = () => {
     const accessToken = localStorage.getItem("token");
     //images: Images,
     await axios.post(
-      "http://localhost:80/addroom",
+      `${process.env.REACT_APP_API_URL}/addroom`,
       { hobby: hobby, roomName: roomName },
       {
         headers: {
