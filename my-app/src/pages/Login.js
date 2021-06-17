@@ -99,11 +99,11 @@ const Login = () => {
               variant="outlined"
             />
           </div>
-          <div className="col three" onClick={onSubmit}>
-            <a href="#" className="btn-login btn-sea">
-              {" "}
-              Sign In{" "}
-            </a>
+          <div
+            className="col three"
+            onClick={onSubmit}
+          >
+            <a href="" className="btn-login btn-sea"> Sign In </a>
           </div>
         </form>
       </center>

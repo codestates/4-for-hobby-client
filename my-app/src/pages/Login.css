@@ -216,8 +216,7 @@ cursor:pointer;
   width: 45px;
   height: 45px;
   font-size: 35px;
-  background: red;
-  border-radius: 7px;
+  border-radius: 20px;
   position: relative;
   animation: mymove 11s infinite;
 }
@@ -225,8 +224,8 @@ cursor:pointer;
   width: 45px;
   height: 45px;
   font-size: 35px;
-  background: red;
-  border-radius: 7px;
+
+  border-radius: 20px;
   position: relative;
   animation: mymove 12s infinite;
 }
@@ -234,8 +233,7 @@ cursor:pointer;
   width: 45px;
   height: 45px;
   font-size: 35px;
-  background: red;
-  border-radius: 7px;
+  border-radius: 20px;
   position: relative;
   animation: mymove 13s infinite;
 }
@@ -243,37 +241,36 @@ cursor:pointer;
   width: 45px;
   height: 45px;
   font-size: 35px;
-  background: red;
-  border-radius: 7px;
+  border-radius: 20px;
   position: relative;
   animation: mymove 14s infinite;
 }
 
 @keyframes mymove {
   0% {
-    top: 100%;
-    left: 0%;
-    background: red;
+    top: 80%;
+    left: 10%;
+    background: white;
   }
   25% {
     top: 0px;
     left: 80%;
-    background: rgb(255, 0, 221);
+    background: white;
   }
   50% {
     top: 600px;
     left: 80%;
-    background: rgb(17, 0, 255);
+    background: white;
   }
   75% {
     top: 600px;
-    left: 0px;
-    background: rgb(25, 224, 7);
+    left: 10px;
+    background: white;
   }
   100% {
     top: 0px;
-    left: 0px;
-    background: rgb(238, 255, 0);
+    left: 10px;
+    background: white;
   }
 }
 
