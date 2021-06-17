@@ -92,16 +92,10 @@ function Signup() {
               />
             </div>
             <div
-              onClick={() => {
-                signupController();
-                setTimeout(history.push("/login"), 5000);
-              }}
-            ></div>
-            <div
               className="col three"
               onClick={() => {
                 signupController();
-                setTimeout(history.push("/login"), 5000);
+                history.push('/login')
               }}
             >
               <a href="" className="btn-signup btn-sea">

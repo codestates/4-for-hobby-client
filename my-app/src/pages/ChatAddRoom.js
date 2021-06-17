@@ -4,6 +4,7 @@ import "./ChatAddRoom.css";
 
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -23,6 +24,7 @@ const ChatAddRoom = () => {
   const [hobby, setHobby] = useState("");
   const [Images, setImages] = useState([]);
   const classes = useStyles();
+  const history = useHistory();
 
   const onSubmit = async () => {
     if (!hobby || !roomName) {
@@ -76,10 +78,10 @@ const ChatAddRoom = () => {
             className="col three"
             onClick={() => {
               onSubmit();
-              window.location.replace("/")
+              history.push('/')
             }}
           >
-            <a href="" className="btn-login btn-sea"> Sign In </a>
+            <a href="" className="btn-login btn-sea"> Add </a>
           </div>
 
         </form>
