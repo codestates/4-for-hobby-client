@@ -88,7 +88,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
         {thumb ? <button
           className="btn-like"
           onClick={() => {
-            likeBtnHandler()
+            likeBtnHandler();
           }}
         >
           <i className="fas fa-thumbs-up">{" "}{likeNum}</i>
@@ -96,7 +96,7 @@ const DataListItem = ({ data, deleteData, enterRoomHandler }) => {
           : <button
             className="btn-like"
             onClick={() => {
-              likeBtnHandler()
+              likeBtnHandler();
             }}
           >
             <i className="far fa-thumbs-up">{" "}{likeNum}</i>

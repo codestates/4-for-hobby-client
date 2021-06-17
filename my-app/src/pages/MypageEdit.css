@@ -27,15 +27,6 @@ h1 {
   margin: 8px;
 }
 
-/* @media screen and (min-width: 767px) {
-  .container{width: 100%; max-width: 1080px; margin: 0 auto;}
-  .container .row{width:50%; float:left; clear:both;}
-  .container .col{float: left; margin: 0 0 1em; padding-right: .5em; padding-left: .5em;}
-  .container .col.three { width: 24.99%; }
-} */
-
-/*All the button styles*/
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -45,9 +36,6 @@ a {
   text-decoration: none;
 }
 
-/********************
-GENERIC BUTTON STYLES
-********************/
 .btn-edit {
   font-size: 20px;
   white-space: nowrap;
@@ -67,7 +55,6 @@ GENERIC BUTTON STYLES
     background-color 0.25s linear;
 }
 
-/*SEA GREEN BUTTON STYLES*/
 .btn-edit.btn-sea {
   background-color: #f5f5f5;
   border-color: #f5f5f5;

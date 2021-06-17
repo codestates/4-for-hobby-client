@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./ChatAddRoom.css";
 
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 const ChatAddRoom = () => {
   const [roomName, setRoomName] = useState("");
   const [hobby, setHobby] = useState("");
-  const [Images, setImages] = useState([]);
   const classes = useStyles();
   const history = useHistory();
 
@@ -31,7 +29,6 @@ const ChatAddRoom = () => {
       alert("Please add a task");
     }
     const accessToken = localStorage.getItem("token");
-    //images: Images,
     await axios.post(
       `${process.env.REACT_APP_API_URL}/addroom`,
       { hobby: hobby, roomName: roomName },
@@ -43,13 +40,12 @@ const ChatAddRoom = () => {
         withCredentials: true,
       }
     );
-
     setHobby("");
     setRoomName("");
   };
 
   return (
-    <div className="form-container" className="background__img">
+    <div className="background__img">
       <div className="background__up"></div>
       <center>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>

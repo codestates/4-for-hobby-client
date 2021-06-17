@@ -90,10 +90,6 @@ function App() {
     getRoomInfoHandler();
   }, []);
 
-  // 처음 페이지 room-list, GET / 로그인, 회원가입 LINK
-  // 로그인 후 / 로그아웃, 방생성, 회원가입 LINK
-  //
-
   return (
     <Router>
       <div className="background__container">
